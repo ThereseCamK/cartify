@@ -1,9 +1,18 @@
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
-async function getAllProducts() {
+ export async function getAllProducts() {
     const response = await fetch(API_URL);
     const data = await response.json();
-    console.log(data);
+    const products = data.data;
+    
+    return products;
     
 }
-getAllProducts();
+
+export async function getProductById(id) {
+    const response = await fetch(`${API_URL}/${id}`);
+    if(!response.ok) throw new Error("Product not found");
+    
+    return await response.json()
+    
+}

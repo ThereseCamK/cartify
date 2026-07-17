@@ -1,0 +1,11 @@
+.carousel-card img{
+   
+    background-color: brown;
+    min-width: 150px;
+    border: 2px solid blue;
+    height: 150px;
+    width: auto;
+}
+.carousel{
+    
+}
