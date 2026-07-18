@@ -1,21 +1,39 @@
-import carousel from "../components/carousel.js";
+import {initCarousel}  from "../components/carousel.js"
 import { getAllProducts } from "../api.js";
 import createProductfeed from "../components/productCard.js";
 import  filterByCategory  from "../utils/filteredProducts.js";
 import { allowedTags, categories} from "../config/categories.js";
 
 
-createCarousel();
-async function createCarousel(){
-    
-    
-    let products = await getAllProducts();
-    const carouselContainer = document.querySelector("#carousel");
-    const allProducts = filterByCategory(products, "all")
-    const featuredProducts = allProducts.slice(0,3);
+initHome();
+async function initHome() {
+  const carouselContainer = document.querySelector("#carousel");
+  const productContainer = document.querySelector("#productFeed");
 
-    carouselContainer.innerHTML = carousel(featuredProducts);
+  carouselContainer.innerHTML = "<p>Loading products...</p>";
+  productContainer.innerHTML = "<p>Loading products...</p>";
+
+  try {
+    const products = await getAllProducts();
+
+    const allProducts = filterByCategory(products, "all");
+    const featuredProducts = allProducts.slice(0, 3);
+
+    initCarousel(featuredProducts);
     createCategorySelect(products);
+  } catch (error) {
+    console.error(error);
+
+    const errorMessage = `
+      <div class="error-message">
+        <h2>Something went wrong</h2>
+        <p>We could not load the products. Please try again later.</p>
+      </div>
+    `;
+
+    carouselContainer.innerHTML = errorMessage;
+    productContainer.innerHTML = errorMessage;
+  }
 }
 
 

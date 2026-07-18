@@ -1,11 +1,60 @@
-.carousel-card img{
-   
-    background-color: brown;
-    min-width: 150px;
-    border: 2px solid blue;
-    height: 150px;
-    width: auto;
+.carousel-card{
+    max-height: 200x;
+    width: 200px;
+    background-color: beige;
+    border: 1px solid lightgray;
+    box-shadow: 0 4px 10px lightgray;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: gray;
 }
-.carousel{
+
+.carousel-card img{
+   padding-top: 2%;
+    min-width: auto;
+    height: 175px;
+    width: auto;
     
+}
+
+.focused{
+    border: solid black 2px;
+    width: 300px;
+    max-height: 300px;
+    background-color: antiquewhite;
+}
+
+.carousel{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar; 
+}
+
+.carousel-btn{
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    border-radius: 50%;
+}
+.btn{
+    border-radius: 10px;
+    width: 190px;
+    height: 41px;
+    font-size: 12px;
+    margin-bottom: 2%;
+}
+.primary-color{
+    background-color: red;
+    color: white;
+}
+
+.add-to-cart{
+    background-image: url("../assets/icons/cart_white.png");
+      background-repeat: no-repeat;
+    background-size: 15px;
+    background-position-y: 50%;
+    background-position-x: 30px;
 }
