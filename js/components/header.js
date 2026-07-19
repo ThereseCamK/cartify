@@ -17,17 +17,31 @@ export default function Header() {
           `;
 
     return /* HTML */ `
-        <div>
+        <div class="header">
             <img
+            class="header-logo"
                 src="../assets/icons/cartify_mobile_icon.png"
                 alt="Cartify"
             >
-
-            ${authElement}
-
-            <a href="../cart/index.html">
-                Cart
-            </a>
+            <div class="header-items">
+            <img
+                src="../assets/icons/profile.png"
+                alt="your cart">
+                ${authElement}
+            </div>
+           
+            <div
+                class="header-items">
+                 <img
+                    src="../assets/icons/CART.png"
+                    alt="your cart"
+                >
+                <a
+                href="../cart/index.html">
+                    Cart   
+                </a>
+            </div>
+            
         </div>
     `;
 }

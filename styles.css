@@ -1,9 +1,13 @@
 
-@import url(css/variables.css);
-@import url(css/header.css);
-@import url(css/footer.css);
-@import url(css/cart.css);
+@import url("css/variables.css");
+@import url("css/header.css");
+@import url("css/footer.css");
+@import url("css/cart.css");
 @import url("css/carousel.css");
-@import url(css/product-card.css);
-@import url(css/forms.css);
-@import url(css/responsive.css);
+@import url("css/product_page.css");
+@import url("css/product_feed.css");
+@import url("css/forms.css");
+@import url("css/responsive.css");
+@import url("css/modal.css");
+@import url("css/global.css");
+

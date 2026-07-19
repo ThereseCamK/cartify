@@ -44,11 +44,15 @@ function createCategorySelect(products) {
   let activeCategory = "all";
 
   const categoryBar = `
-    <button id="all" class="categoryToken" data-category="all">All</button>
-    <button id="fashion" class="categoryToken" data-category="fashion">Fashion</button>
-    <button id="beauty" class="categoryToken" data-category="beauty">Beauty</button>
-    <button id="watches" class="categoryToken" data-category="watches">Watches</button>
-    <button id="headphones" class="categoryToken" data-category="headphones">Headphones</button>
+   <p>Filter by category</p>
+    <div class="categoryBar">
+        <button id="all" class="categoryToken" data-category="all">All</button>
+        <button id="fashion" class="categoryToken" data-category="fashion">Fashion</button>
+        <button id="beauty" class="categoryToken" data-category="beauty">Beauty</button>
+        <button id="watches" class="categoryToken" data-category="watches">Watches</button>
+        <button id="headphones" class="categoryToken" data-category="headphones">Headphones</button>
+    </div>
+   
   `;
 
   categoriesContainer.innerHTML = categoryBar;

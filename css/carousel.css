@@ -1,60 +1,132 @@
-.carousel-card{
-    max-height: 200x;
-    width: 200px;
-    background-color: beige;
-    border: 1px solid lightgray;
-    box-shadow: 0 4px 10px lightgray;
-    margin: 10px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: gray;
-}
+.carousel {
+    position: relative;
 
-.carousel-card img{
-   padding-top: 2%;
-    min-width: auto;
-    height: 175px;
-    width: auto;
-    
-}
-
-.focused{
-    border: solid black 2px;
-    width: 300px;
-    max-height: 300px;
-    background-color: antiquewhite;
-}
-
-.carousel{
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar; 
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    width: 100%;
+    margin: 40px auto;
+    padding: 20px 0;
+
+    overflow: hidden;
 }
 
-.carousel-btn{
-    height: 30px;
-    width: 30px;
-    background-color: red;
-    border-radius: 50%;
-}
-.btn{
+
+
+.carousel-card {
+    flex: 0 0 180px;
+    height: 270px;
+
+    padding: 12px;
+
+    background-color: gray;
+    border: 1px solid lightgray;
     border-radius: 10px;
-    width: 190px;
-    height: 41px;
-    font-size: 12px;
-    margin-bottom: 2%;
+
+    box-shadow: 0 4px 10px rgba(80, 77, 77, 0.25);
+
+    text-align: center;
+
+    opacity: 0.65;
+    transform: scale(0.9);
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
-.primary-color{
+
+.carousel-card img {
+    width: 90%;
+    height: 140px;
+
+    object-fit: contain;
+    
+    filter: grayscale(100%);
+
+}
+
+
+
+
+.carousel-card.focused {
+    background-color: white;
+
+    border: 2px solid black;
+
+    opacity: 1;
+    transform: scale(1.08);
+
+    z-index: 2;
+}
+
+.carousel-card button {
+    display: none;
+}
+
+.carousel-card.focused button {
+    display: block;
+}
+.carousel-card.focused img {
+    filter: grayscale(0%);
+}
+
+
+
+.carousel-btn {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: rgba(255, 120, 120, 0.85);
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+.back-btn {
+    left: calc(50% - 150px);
+}
+
+.forw-btn {
+    right: calc(50% - 150px);
+}
+
+
+
+
+.btn {
+    min-width: 80%;
+    height: 41px;
+
+    margin: 0 auto 2%;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 12px;
+}
+
+.primary-color {
     background-color: red;
     color: white;
 }
 
-.add-to-cart{
+
+
+
+.add-to-cart {
     background-image: url("../assets/icons/cart_white.png");
-      background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-size: 15px;
-    background-position-y: 50%;
-    background-position-x: 30px;
+    background-position: 30px center;
 }

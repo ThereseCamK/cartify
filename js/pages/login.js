@@ -1,5 +1,6 @@
 import { loginUser } from "../api.js";
 import { saveAuth } from "../auth/authstorage.js";
+import { createValidationModal, showValidationModal, initValidationModal } from "../components/modal/validationModal.js";
 
 initLogin();
 async function initLogin(){
@@ -7,6 +8,12 @@ async function initLogin(){
 
     loginContainer.innerHTML = /*HTML */`
         <section>
+         <div 
+                    class="welcome-message"
+                >
+                <h1>Welcome back</h1>
+                <h2>Log in to your account to continue.</h2>
+            </div>
                 <form>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -31,10 +38,18 @@ async function initLogin(){
                         >
                     
                     </div>
-                    <button type="submit">Log in</button>
+                    <div class="form-group"> 
+                       <button 
+                        class="btn primary-color" 
+                        type="submit"
+                    >
+                        Log in
+                    </button></div>
+                 
                 </form>
                 <p>Don't have an account? </p><a href="./register.html"> Register here! </a>     
         </section>
+        ${createValidationModal()}
     `;
 
     const form = document.querySelector("form");
@@ -60,6 +75,7 @@ async function login(user){
         window.location.href= "../index.html";
     }
     catch (error){
-        console.error("Login failed:", error);
+        showValidationModal(error.message);
+        initValidationModal();
     }
 }

@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    box-shadow: 0 4px 10px black;
+    
+}
+.header-logo{
+    margin-right: 15%;
+    height: 100px;
+    width: auto;
+}
+.header-items{
+    display: flex;
+    flex-direction: column;    
+    position: relative;
+    bottom: 10px;
+    text-align: right;
+    margin-left: 10px;
+    
+}
+.header-items button{
+    background-color: inherit;
+    border: none;
+
+}
+
+.header-items a{
+    text-decoration: none;
+    color: black;
+}
+.header-items img{
+    height: 20px;
+    width: 20px;
+    margin-left: 20px;
+}

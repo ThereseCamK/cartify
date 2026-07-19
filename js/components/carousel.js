@@ -4,8 +4,9 @@ function createCarouselItem(product, index) {
   const activeClass = index === 1 ? "focused" : "";
 
   return `
-    <article class="carousel-card ${activeClass}">¨
+    <article class="carousel-card ${activeClass}">
     <a href="./product/index.html?id=${product.id}">
+
       <img src="${product.image.url}" alt="${product.image.alt}">
       <h3>${product.title}</h3>
       <p>${product.price}</p>
@@ -23,7 +24,7 @@ function createCarouselMarkUp(products) {
     <section class="carousel">
       <button
         id="carousel-back-btn"
-        class="carousel-btn"
+        class="carousel-btn back-btn"
         type="button"
       >
         <img
@@ -40,7 +41,7 @@ function createCarouselMarkUp(products) {
 
       <button
         id="carousel-forward-btn"
-        class="carousel-btn"
+        class="carousel-btn forw-btn"
         type="button"
       >
         <img

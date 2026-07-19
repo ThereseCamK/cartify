@@ -1,0 +1,72 @@
+
+.welcome-message h1, .welcome-message h2{
+    text-align: center;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 1% 10% 2% 10%;
+    
+}
+
+.form-group label {
+    font-weight: bolder;
+    
+}
+.form-group input{
+    border-radius: 10px;
+    height: 41px;
+    width: 80%;  
+}
+.form-group button{
+    width: 80%;
+}
+
+
+.register-section{
+    width: 80%;
+    padding: 1% 10% 2% 10%;
+}
+.register-link-wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 10%;
+    font-size: smaller;
+    align-items: center;
+   
+}
+.register-link-wrapper a{
+    color: red;
+    margin-left: 10px;
+    
+}
+.input-wrapper {
+    position: relative;
+   
+}
+
+.input-tooltip {
+    display: none;
+
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+
+    padding: 12px 16px;
+    border-radius: 8px;
+
+    background: #222;
+    color: white;
+
+    font-size: 0.875rem;
+
+    z-index: 10;
+}
+
+.input-wrapper:hover .input-tooltip,
+.input-wrapper:focus-within .input-tooltip {
+    display: block;
+}

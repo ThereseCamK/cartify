@@ -24,6 +24,7 @@ async function initProductPage(){
 
         productPagecontainer.innerHTML = createProductPageMargup(product);
         initShareButton(product);
+        
         // initAddToCart(product);
         
     }
@@ -39,12 +40,13 @@ async function initProductPage(){
         `
     }
 
+
   
 
 }
 
 function createProductPageMargup(product){
-    console.log(product)
+    
     return `
         <nav class="breadcrumb">
             <a href="../index.html" >Home</a>
@@ -56,6 +58,7 @@ function createProductPageMargup(product){
     
         <section class="singleProductCard">
             <img 
+                class="product-card-image"
                 src="${product.image.url}" 
                 alt="${product.image.alt || product.title}"
             >
@@ -90,13 +93,16 @@ function createProductPageMargup(product){
 
                 <button 
                     id="shareButton" 
-                    class="icon-button" 
+                    class=" btn icon-button" 
                     aria-label="Share product"
                 >
                     <img src="../assets/icons/small_share_black.png" alt="shareProduct">
                 </button>
             </div>
             
+        </section>
+        <section id="ratingView">
+            ${viewRatingInformation(product)}
         </section>
     `;
 
@@ -123,8 +129,8 @@ function getReviewStars(product){
     const averageRating = totalRating /reviews.length;
     const roundedRating = Math.round(averageRating);
 
-    const filledStars = "★".repeat(roundedRating);
-    const emptyStars = "☆".repeat(5 - roundedRating);
+  
+  
 
     return `
         <div class="review-stars">
@@ -132,7 +138,7 @@ function getReviewStars(product){
                 class="stars"
                 aria-label="${averageRating.toFixed(1)} out of 5 stars"
             >
-            ${filledStars}${emptyStars}
+           ${getStars(roundedRating)}
             </span>
 
             <span class="review-count">
@@ -142,6 +148,8 @@ function getReviewStars(product){
     `;
    
 }
+
+
 
 function getProductPrice(product){
    const hasDiscount =
@@ -192,4 +200,32 @@ function initShareButton(product){
 
 function initAddToCart(product){
     
+}
+function viewRatingInformation(product){
+    let html = '<h3>Reviews</h3>';
+    if(product.reviews.length ==0){
+        html += `No reviews yet`
+    }
+    else{
+        for(let i = 0; i < product.reviews.length; i++){
+
+                let singleReview = product.reviews[i];
+                html += `
+                    <div class="reviewInformation">
+                        <h4>${singleReview.username}</h4>
+                        <p>${getStars(singleReview.rating)}</p>
+                        <p>${singleReview.description}</p>
+                    </div>
+                `
+            }
+    }
+    
+    
+    
+    return html;
+}
+function getStars(rating){
+        const filled = "★".repeat(rating);
+        const emptyStars = "☆".repeat(5 - rating);
+    return filled + emptyStars;
 }
