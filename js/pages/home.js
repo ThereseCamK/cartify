@@ -3,6 +3,7 @@ import { getAllProducts } from "../api.js";
 import createProductfeed from "../components/productCard.js";
 import  filterByCategory  from "../utils/filteredProducts.js";
 import { allowedTags, categories} from "../config/categories.js";
+import { handleAddToCart } from "../services/handleAddToCart.js";
 
 
 initHome();
@@ -78,5 +79,9 @@ function createfeed(products, activeCategory){
     const filteredProducts = filterByCategory(products, activeCategory);
 
     productContainer.innerHTML = createProductfeed(filteredProducts);
+
+}
+
+function addToCartButton(){
 
 }

@@ -1,3 +1,4 @@
+
  function createProductCard(product){
   
     return `
@@ -12,7 +13,7 @@
                 <span>Add to cart</span>
             </button>
         </article>
-    `
+    `;
 }
 
 
@@ -27,4 +28,5 @@ export default function createProductfeed(products){
         </section>
     `;
 }
+
 

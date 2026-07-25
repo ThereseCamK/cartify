@@ -1,3 +1,5 @@
+
+
 let carouselProducts = [];
 
 function createCarouselItem(product, index) {
@@ -11,7 +13,7 @@ function createCarouselItem(product, index) {
       <h3>${product.title}</h3>
       <p>${product.price}</p>
 
-      <button class="btn primary-color add-to-cart">
+      <button id="caroussel-add-to-cart" class="btn primary-color add-to-cart">
         <span>Add to cart</span>
       </button>
     </a>
@@ -63,6 +65,7 @@ export function initCarousel(products) {
 
   function renderCarousel() {
     carouselContainer.innerHTML = createCarouselMarkUp(carouselProducts);
+ 
 
     const backBtn = document.querySelector("#carousel-back-btn");
     const forwardBtn = document.querySelector(
@@ -82,7 +85,10 @@ export function initCarousel(products) {
       carouselProducts.push(firstProduct);
       renderCarousel();
     });
+
+ 
   }
 
   renderCarousel();
 }
+

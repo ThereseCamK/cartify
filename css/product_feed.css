@@ -24,14 +24,14 @@
     display: flex;
     flex-direction: column; 
     height: 90%;          
-    padding: 16px;
+    padding: 10px;
     border: 1px solid #8f8a8a;
     border-radius: 10px;
 }
 
 .product-card img{
     height: auto;
-    max-width: 150px;
+    max-width: 100px;
 
 }
 .product-button {

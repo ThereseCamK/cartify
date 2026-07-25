@@ -1,6 +1,6 @@
-import { loginUser } from "../api.js";
-import { saveAuth } from "../auth/authstorage.js";
-import { createValidationModal, showValidationModal, initValidationModal } from "../components/modal/validationModal.js";
+
+import { createValidationModal } from "../components/modal/validationModal.js";
+import {Login } from "../auth/login.js";
 
 initLogin();
 async function initLogin(){
@@ -62,20 +62,8 @@ async function initLogin(){
             email: formData.get('email'),
             password: formData.get("password")
         }
-        login(inputUser);
+        Login(inputUser);
         console.log(inputUser);
     });
 }
 
-async function login(user){
- try {
-        const loggedInUser= await loginUser(user);
-        console.log("logged in: ", loggedInUser);
-        saveAuth(loggedInUser);
-        window.location.href= "../index.html";
-    }
-    catch (error){
-        showValidationModal(error.message);
-        initValidationModal();
-    }
-}

@@ -1,4 +1,6 @@
 import { getProductById } from "../api.js";
+import { handleAddToCart } from "../services/handleAddToCart.js";
+
 
 initProductPage();
 async function initProductPage(){
@@ -24,14 +26,15 @@ async function initProductPage(){
 
         productPagecontainer.innerHTML = createProductPageMargup(product);
         initShareButton(product);
+        initAddToCart(product);
         
-        // initAddToCart(product);
+      
         
     }
     catch (error){
         console.error(error);
 
-        productPagecontainer.innerHTML = `¨
+        productPagecontainer.innerHTML = `
             <section class="error-message">
                 <h1>Product not found</h1>
                 <p>We could not load this product.</p>
@@ -39,6 +42,7 @@ async function initProductPage(){
             </section>
         `
     }
+
 
 
   
@@ -85,8 +89,9 @@ function createProductPageMargup(product){
                 </p>
 
                  <button 
+                    id="add-to-cart"
                     class="btn primary-color add-to-cart"
-                    data-product-id="${product.id}"
+                    data-id="${product.id}"
                  >
                     <span>Add to cart</span>
                 </button>
@@ -199,8 +204,13 @@ function initShareButton(product){
 }
 
 function initAddToCart(product){
-    
+    const addToCartBtn = document.querySelector("#add-to-cart");
+
+    addToCartBtn.addEventListener("click", () => {
+        handleAddToCart(product);
+    }) 
 }
+
 function viewRatingInformation(product){
     let html = '<h3>Reviews</h3>';
     if(product.reviews.length ==0){
@@ -229,3 +239,4 @@ function getStars(rating){
         const emptyStars = "☆".repeat(5 - rating);
     return filled + emptyStars;
 }
+
