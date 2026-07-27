@@ -76,9 +76,6 @@ function createCategorySelect(products) {
 
 function createfeed(products, activeCategory){
    
-  
-    
-    
     const filteredProducts = filterByCategory(products, activeCategory);
 
     initCreateProductfeed(filteredProducts);

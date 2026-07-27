@@ -18,11 +18,13 @@ export default function Header() {
 
     return /* HTML */ `
         <div class="header">
-            <img
+            
+        <a href="../index.html"><img 
             class="header-logo"
                 src="../assets/icons/cartify_mobile_icon.png"
                 alt="Cartify"
             >
+        </a>
             <div class="header-items">
             <img
                 src="../assets/icons/profile.png"
