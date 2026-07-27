@@ -1,3 +1,4 @@
+import { initAddToCart } from "../utils/initAddToCart.js";
 
  function createProductCard(product){
   
@@ -9,7 +10,15 @@
              </a>
             <h3>${product.title}</h3>
             <p>${product.price}</p>
-             <button class="btn primary-color add-to-cart product-button">
+             <button 
+                class="
+                    feed-add-to-cart 
+                    btn 
+                    primary-color 
+                    add-to-cart 
+                    product-button"
+                data-id=${product.id}
+                >
                 <span>Add to cart</span>
             </button>
         </article>
@@ -17,9 +26,10 @@
 }
 
 
-export default function createProductfeed(products){
-  
-    return `
+ export default function initCreateProductfeed(products){
+      const productContainer = document.querySelector("#productFeed");
+    productContainer.innerHTML = 
+     `
         <section>
             <div class="product-feed-grid">
                 ${products.map(createProductCard).join("")}
@@ -27,6 +37,12 @@ export default function createProductfeed(products){
           
         </section>
     `;
+    initAddToCart(products, ".feed-add-to-cart")
 }
+    
+
+
+
+
 
 

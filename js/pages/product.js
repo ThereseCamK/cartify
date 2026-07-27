@@ -43,10 +43,6 @@ async function initProductPage(){
         `
     }
 
-
-
-  
-
 }
 
 function createProductPageMargup(product){

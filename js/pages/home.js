@@ -1,9 +1,11 @@
 import {initCarousel}  from "../components/carousel.js"
 import { getAllProducts } from "../api.js";
-import createProductfeed from "../components/productCard.js";
+import initCreateProductfeed  from "../components/productCard.js";
 import  filterByCategory  from "../utils/filteredProducts.js";
 import { allowedTags, categories} from "../config/categories.js";
-import { handleAddToCart } from "../services/handleAddToCart.js";
+
+
+
 
 
 initHome();
@@ -22,6 +24,7 @@ async function initHome() {
 
     initCarousel(featuredProducts);
     createCategorySelect(products);
+   
   } catch (error) {
     console.error(error);
 
@@ -36,7 +39,6 @@ async function initHome() {
     productContainer.innerHTML = errorMessage;
   }
 }
-
 
 
 function createCategorySelect(products) {
@@ -73,15 +75,15 @@ function createCategorySelect(products) {
 }
 
 function createfeed(products, activeCategory){
+   
   
-    const productContainer = document.querySelector("#productFeed");
+    
     
     const filteredProducts = filterByCategory(products, activeCategory);
 
-    productContainer.innerHTML = createProductfeed(filteredProducts);
+    initCreateProductfeed(filteredProducts);
 
+    
 }
 
-function addToCartButton(){
 
-}

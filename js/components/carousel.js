@@ -1,4 +1,5 @@
 
+import { initAddToCart } from "../utils/initAddToCart.js";
 
 let carouselProducts = [];
 
@@ -7,16 +8,19 @@ function createCarouselItem(product, index) {
 
   return `
     <article class="carousel-card ${activeClass}">
-    <a href="./product/index.html?id=${product.id}">
-
-      <img src="${product.image.url}" alt="${product.image.alt}">
+      <a href="./product/index.html?id=${product.id}">
+        <img src="${product.image.url}" alt="${product.image.alt}">
+       </a>
       <h3>${product.title}</h3>
       <p>${product.price}</p>
 
-      <button id="caroussel-add-to-cart" class="btn primary-color add-to-cart">
-        <span>Add to cart</span>
+      <button 
+          class="carousel-add-to-cart btn primary-color add-to-cart"
+          data-id="${product.id}"
+        >
+          <span>Add to cart</span>
       </button>
-    </a>
+   
     </article>
   `;
 }
@@ -86,9 +90,12 @@ export function initCarousel(products) {
       renderCarousel();
     });
 
- 
+  initAddToCart(carouselProducts, ".carousel-add-to-cart");
+
   }
 
   renderCarousel();
 }
+
+
 
