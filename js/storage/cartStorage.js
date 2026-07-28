@@ -3,6 +3,7 @@ import { getAuth } from "../auth/authstorage.js";
 const CART_KEY = "cartify_carts";
 
 export function getUserCart(){
+    
     const user = getAuth();
 
     if (!user) {
@@ -10,10 +11,31 @@ export function getUserCart(){
     }
     const carts = getAllCarts();
     const userCart = carts[user.email] || [];
+    console.log(userCart);
     return userCart
 }
 export function saveUserCart(){}
-export function removeFromCart(){}
+
+
+export function removeFromCart(productId){
+    
+    const user = getAuth();
+
+    if (!user) {
+        return [];
+    }
+
+    const carts = getAllCarts();
+    const userCart = carts[user.email] || [];
+
+    carts[user.email] = userCart.filter(
+        item => item.id !== productId
+    );
+
+    saveAllCarts(carts);
+
+    return carts[user.email];
+}
 
 export function clearCart(){
    const user = getAuth();
@@ -27,15 +49,10 @@ export function clearCart(){
     carts[user.email] = []; 
 
     saveAllCarts(carts); 
-
-    console.log(carts[user.email]);
     return carts[user.email];
    
 
 }
-
-
-
 
 
 function getAllCarts() {
@@ -72,7 +89,7 @@ export function addToUserCart(product) {
     }
 
     carts[user.email] = userCart;
-
+    console.log(userCart)
     saveAllCarts(carts)
 
     
@@ -83,4 +100,64 @@ function saveAllCarts(carts){
         CART_KEY,
         JSON.stringify(carts)
     );
+}
+
+export function increaseItemInCart(productId){
+     const user = getAuth();
+
+    if (!user) {
+        return [];
+    }
+
+    const carts = getAllCarts();
+    const userCart = carts[user.email] || [];
+
+    const productInCart = userCart.find(product => product.id === productId);
+    if(!productInCart) return userCart;
+
+    productInCart.quantity ++;
+
+    carts[user.email] = userCart;
+
+    saveAllCarts(carts);
+
+    return userCart;
+
+}
+
+export function decreaseItemInCart(productId){
+     const user = getAuth();
+
+    if (!user) {
+        return [];
+    }
+
+    const carts = getAllCarts();
+    const userCart = carts[user.email] || [];
+
+    const productIndex = userCart.findIndex(
+        product => product.id === productId
+    );
+
+    if (productIndex === -1) {
+        return userCart;
+    }
+
+    const productInCart = userCart.find(product => product.id === productId);
+    if(!productInCart) return userCart;
+    if(productInCart.quantity === 1){
+  
+       userCart.splice(productIndex, 1)
+    }
+    else{
+        productInCart.quantity --;
+    }
+    
+
+    carts[user.email] = userCart;
+
+    saveAllCarts(carts);
+
+    return userCart;
+
 }
