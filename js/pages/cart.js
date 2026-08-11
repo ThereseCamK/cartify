@@ -19,7 +19,7 @@ function cartPage(){
             <h1>Your cart is feeling a little empty</h1>
             <p>Discover something you love and add it to your cart.</p>
             <button
-                
+ 
                 class="btn primary-color">
                 <a href="../index.html">Explore products</a>
             </button>
@@ -37,11 +37,13 @@ function cartPage(){
                         alt="Clear cart"
                         >
                     </a>
-                
-                    <button
-                        class="btn primary-color">
-                        Proceed to checkout
-                    </button>
+                    <a href="../checkout/index.html">
+                        <button 
+                            class="btn primary-color">
+                            Proceed to checkout
+                        </button>
+                    </a>
+                    
                 <section>
         `;
     }
@@ -80,7 +82,7 @@ function cartPage(){
                 cartPage();
         });
     });
-
+    
 }
 
 function createCartView(cart){

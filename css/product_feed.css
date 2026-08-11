@@ -40,3 +40,23 @@
 .add-to-cart{
     background-image: none;
 }
+.wishlistIcon{
+    max-height: 30px;
+    max-width: 30px;
+    background-color: #8f8a8a52;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 5px;
+
+}
+
+.wishlistIcon img{
+    height: 20px;
+    width: 20px;
+   
+    
+}
+
+.wishlisted {
+    background-color: red;
+}

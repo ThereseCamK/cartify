@@ -1,12 +1,26 @@
 import { initAddToCart } from "../utils/initAddToCart.js";
+import { getUserWishlist } from "../storage/wishListStorage.js";
+import { initToggleWishlist } from "../utils/initToggleWishlist.js";
 
  function createProductCard(product){
-  
+    const wishlist = getUserWishlist();
+   
+    let inUsersWishlist = "";
+    if(wishlist.includes(product.id)){
+        console.log(" is wished for", product.id)
+        inUsersWishlist = "wishlisted";
+       
+    }
+    
     return `
          <article class="product-card">
-           
+           <a 
+            class="toggleWishlist ${inUsersWishlist} wishlistIcon"
+            data-id=${product.id}>
+                <img src="../assets/icons/heart_black.png">
+           </a>
             <a href="./product/index.html?id=${product.id}">
-             <img src="${product.image.url}" alt="${product.image.alt}">
+                <img src="${product.image.url}" alt="${product.image.alt}">
              </a>
             <h3>${product.title}</h3>
             <p>${product.price}</p>
@@ -37,7 +51,11 @@ import { initAddToCart } from "../utils/initAddToCart.js";
           
         </section>
     `;
-    initAddToCart(products, ".feed-add-to-cart")
+    initAddToCart(products, ".feed-add-to-cart");
+
+    initToggleWishlist(products, ".toggleWishlist");
+    
+
 }
     
 

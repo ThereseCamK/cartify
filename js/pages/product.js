@@ -1,7 +1,9 @@
 import { getProductById } from "../api.js";
-import { handleAddToCart } from "../services/handleAddToCart.js";
+import { initAddToCart } from "../utils/initAddToCart.js";
 import { getProductPrice } from "../utils/formatPrice.js";
 
+import { getUserWishlist } from "../storage/wishListStorage.js";
+import { initToggleWishlist } from "../utils/initToggleWishlist.js";
 
 initProductPage();
 async function initProductPage(){
@@ -27,7 +29,8 @@ async function initProductPage(){
 
         productPagecontainer.innerHTML = createProductPageMargup(product);
         initShareButton(product);
-        initAddToCart(product);
+        initAddToCart([product], "#add-to-cart");
+        initToggleWishlist([product], ".toggleWishlist")
         
       
         
@@ -47,7 +50,15 @@ async function initProductPage(){
 }
 
 function createProductPageMargup(product){
-    
+       const wishlist = getUserWishlist();
+       
+        let inUsersWishlist = "";
+        if(wishlist.includes(product.id)){
+            console.log(" is wished for", product.id)
+            inUsersWishlist = "wishlisted";
+           
+        }
+        
     return `
         <nav class="breadcrumb">
             <a href="../index.html" >Home</a>
@@ -58,6 +69,11 @@ function createProductPageMargup(product){
         </nav>
     
         <section class="singleProductCard">
+           <a 
+            class="toggleWishlist ${inUsersWishlist} wishlistIcon "
+            data-id=${product.id}>
+                <img src="../assets/icons/heart_black.png">
+           </a>
             <img 
                 class="product-card-image"
                 src="${product.image.url}" 
@@ -91,6 +107,13 @@ function createProductPageMargup(product){
                     data-id="${product.id}"
                  >
                     <span>Add to cart</span>
+                </button>
+                <button 
+                    id="add-to-wishlist"
+                    class="btn primary-color toggleWishlist"
+                    data-id="${product.id}"
+                 >
+                    <span>Add to wishlist</span>
                 </button>
 
                 <button 
@@ -179,13 +202,6 @@ function initShareButton(product){
         })
 }
 
-function initAddToCart(product){
-    const addToCartBtn = document.querySelector("#add-to-cart");
-
-    addToCartBtn.addEventListener("click", () => {
-        handleAddToCart(product);
-    }) 
-}
 
 function viewRatingInformation(product){
     let html = '<h3>Reviews</h3>';

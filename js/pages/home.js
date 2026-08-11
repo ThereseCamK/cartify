@@ -10,6 +10,7 @@ import { allowedTags, categories} from "../config/categories.js";
 
 initHome();
 async function initHome() {
+  
   const carouselContainer = document.querySelector("#carousel");
   const productContainer = document.querySelector("#productFeed");
 

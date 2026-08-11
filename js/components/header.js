@@ -28,7 +28,7 @@ export default function Header() {
             <div class="header-items">
             <img
                 src="../assets/icons/profile.png"
-                alt="your cart">
+                alt="Log in og out">
                 ${authElement}
             </div>
            
