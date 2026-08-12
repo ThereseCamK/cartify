@@ -20,3 +20,17 @@ export function getProductPrice(product){
     </span>
   `;
 }
+
+export function getProductPriceNumber(product){
+     return product.discountedPrice < product.price
+        ? product.discountedPrice
+        : product.price;
+}
+export function getTotalCartPrice(cart){
+    let total = 0;
+    cart.forEach(item=> {
+        const price = getProductPriceNumber(item);
+        total += price * item.quantity;
+        });
+    return total;
+}
