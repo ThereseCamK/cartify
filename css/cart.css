@@ -2,3 +2,20 @@
     height: 50px;
     width: auto;
 }
+.confirm-circle{
+    border: 3px solid #0A5506;
+    border-radius: 50%;
+    width: 98px;
+    height: 98px;
+    position: relative;
+    top: 30px;
+    left: 40%;
+    margin-bottom: 35px;
+    
+}
+.check-mark{
+    color: #0A5506;
+    font-size: 3rem;
+    text-align: center;
+    padding: 15%;
+}

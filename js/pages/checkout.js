@@ -2,6 +2,7 @@ import { getUserCart } from "../storage/cartStorage.js";
 import { getProductPriceNumber, getTotalCartPrice } from "../utils/formatPrice.js";
 import { SHIPPING_RATES } from "../config/shippingRates.js";
 import { clearCart } from "../storage/cartStorage.js";
+import { saveLastOrder } from "../storage/orderStorage.js";
 
  
 
@@ -29,6 +30,8 @@ function checkoutPage() {
             </button>
         </form>
     `;
+
+   
 
     initShipping(cart);
     initPayment();
@@ -104,7 +107,19 @@ function initCheckoutSubmit() {
             form.reportValidity();
             return;
         }
+        const formData = new FormData(form);
 
+        const deliveryEmail = formData.get("emailAddress");
+        const fullName = formData.get("fullName");
+        const uniqueId = crypto.randomUUID();
+ 
+        const lastOrder = {
+            email: deliveryEmail,
+            name: fullName,
+            orderNumber: uniqueId
+        };
+
+        saveLastOrder(lastOrder);
         completePurchase();
     });
 }
@@ -368,7 +383,7 @@ function getShippingCosts(countryCode) {
     return SHIPPING_RATES[countryCode] ?? SHIPPING_RATES.DEFAULT;
 }
 
-function completePurchase(){
+function completePurchase(deliveryEmail){
     clearCart();
     location.href="../success/index.html";
     

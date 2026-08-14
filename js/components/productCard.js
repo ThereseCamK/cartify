@@ -7,7 +7,7 @@ import { initToggleWishlist } from "../utils/initToggleWishlist.js";
    
     let inUsersWishlist = "";
     if(wishlist.includes(product.id)){
-        console.log(" is wished for", product.id)
+   
         inUsersWishlist = "wishlisted";
        
     }

@@ -11,10 +11,10 @@ export function getUserCart(){
     }
     const carts = getAllCarts();
     const userCart = carts[user.email] || [];
-    console.log(userCart);
+  
     return userCart
 }
-export function saveUserCart(){}
+
 
 
 export function removeFromCart(productId){
@@ -89,8 +89,9 @@ export function addToUserCart(product) {
     }
 
     carts[user.email] = userCart;
-    console.log(userCart)
-    saveAllCarts(carts)
+ 
+    saveAllCarts(carts);
+
 
     
 }
@@ -100,6 +101,7 @@ function saveAllCarts(carts){
         CART_KEY,
         JSON.stringify(carts)
     );
+    updateCartCount();
 }
 
 export function increaseItemInCart(productId){
@@ -160,4 +162,22 @@ export function decreaseItemInCart(productId){
 
     return userCart;
 
+}
+
+export function getCartItemCount() {
+    const cart = getUserCart();
+    let count = 0;
+    cart.forEach(item => {
+        count += item.quantity;
+    });
+
+    return count;
+}
+
+export function updateCartCount(){
+    const cartCountElement = document.querySelector(".cart-count");
+
+    if(!cartCountElement) return;
+
+    cartCountElement.textContent = getCartItemCount();
 }

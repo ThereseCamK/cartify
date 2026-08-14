@@ -1,8 +1,10 @@
 import { isLoggedIn, logout } from "../auth/authstorage.js";
+import { getCartItemCount } from "../storage/cartStorage.js";
 
 
 export default function Header() {
     const isUserLoggedIn = isLoggedIn();
+    const cartCount = getCartItemCount();
 
     const authElement = isUserLoggedIn
         ? `
@@ -34,6 +36,7 @@ export default function Header() {
            
             <div
                 class="header-items">
+                <div class="cart-count">${cartCount}</div>
                  <img
                     src="../assets/icons/CART.png"
                     alt="your cart"

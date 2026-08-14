@@ -34,7 +34,7 @@ export function initValidationModal() {
         document.querySelector("#closeValidationModal");
 
     closeButton.addEventListener("click", () => {
-        console.log("try again funker ?")
+      
         modal.close();
     });
 }
