@@ -1,5 +1,5 @@
 
-import { createValidationModal } from "../components/modal/validationModal.js";
+import { createModal } from "../components/modal.js";
 import {Login } from "../auth/login.js";
 
 initLogin();
@@ -49,7 +49,16 @@ async function initLogin(){
                 </form>
                 <p>Don't have an account? </p><a href="./register.html"> Register here! </a>     
         </section>
-        ${createValidationModal()}
+        ${createModal(  "loginModal", 
+                        "Something went wrong", 
+                        "", 
+                        ` <button
+                            id="closeValidationModal"
+                            type="button"
+                            class="modal-close"
+                        >
+                            Try again
+                        </button>` )}
     `;
 
     const form = document.querySelector("form");

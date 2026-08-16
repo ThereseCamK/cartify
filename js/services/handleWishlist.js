@@ -1,11 +1,16 @@
 import { isLoggedIn } from "../auth/authstorage.js";
 import { addOrRemoveFromUserWishlist } from "../storage/wishListStorage.js";
+import { initModal, showModal } from "../components/modal.js";
 
 export function handleToggleWishlist(product){
-    console.log(product)
+  
     if(!isLoggedIn()){
-        // showNeedToBeLoggedInMOdal
-        alert("You need to be logged in ");
+        showModal("errorModal",  `You need to be logged
+        in before you can add 
+        product to your wishlist.`
+        );
+        initModal("errorModal");
+      
         return null;
     }
     else {

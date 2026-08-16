@@ -4,10 +4,6 @@ import initCreateProductfeed  from "../components/productCard.js";
 import  filterByCategory  from "../utils/filteredProducts.js";
 import { allowedTags, categories} from "../config/categories.js";
 
-
-
-
-
 initHome();
 async function initHome() {
   
@@ -25,6 +21,7 @@ async function initHome() {
 
     initCarousel(featuredProducts);
     createCategorySelect(products);
+    initSearch(products);
    
   } catch (error) {
     console.error(error);
@@ -68,20 +65,35 @@ function createCategorySelect(products) {
     button.addEventListener("click", (event) => {
       activeCategory = event.currentTarget.dataset.category;
 
-      createfeed(products, activeCategory);
+      createFeed(products, activeCategory);
     });
   });
 
-  createfeed(products, activeCategory);
+  createFeed(products, activeCategory);
 }
 
-function createfeed(products, activeCategory){
+function createFeed(products, activeCategory){
    
     const filteredProducts = filterByCategory(products, activeCategory);
 
     initCreateProductfeed(filteredProducts);
+ 
+}
 
-    
+function initSearch(products){
+    const searchInput = document.querySelector("#searchInput");
+        if (!searchInput) {
+        return;
+    }
+
+      searchInput.addEventListener("input", (event) => {
+      const searchValue = event.currentTarget.value.toLowerCase().trim();
+      console.log(searchValue)
+      const filteredResults = products.filter(product => {
+        return product.title.toLowerCase().includes(searchValue);
+      });
+      createFeed(filteredResults, "all")
+    })
 }
 
 

@@ -2,7 +2,9 @@ import { isLoggedIn, logout } from "../auth/authstorage.js";
 import { getCartItemCount } from "../storage/cartStorage.js";
 
 
-export default function Header() {
+
+export default function Header({showSearch = false}) {
+    console.log(showSearch)
     const isUserLoggedIn = isLoggedIn();
     const cartCount = getCartItemCount();
 
@@ -33,7 +35,7 @@ export default function Header() {
                 alt="Log in og out">
                 ${authElement}
             </div>
-           
+            
             <div
                 class="header-items">
                 <div class="cart-count">${cartCount}</div>
@@ -46,8 +48,10 @@ export default function Header() {
                     Cart   
                 </a>
             </div>
+            ${showSearch ? `<input type="search" id="searchInput" placeholder="Search for products">`: ""}
             
         </div>
+        <div class="toast-container"></div>
     `;
 }
 export function initHeader() {
@@ -63,4 +67,6 @@ export function initHeader() {
 
         window.location.href = "../index.html";
     });
+
+    
 }

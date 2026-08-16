@@ -1,5 +1,5 @@
 import { registerUser } from "../api.js";
-import { createValidationModal, showValidationModal, initValidationModal } from "../components/modal/validationModal.js";
+import { createModal, showModal, initModal } from "../components/modal.js";
 initRegister();
 
 async function initRegister() {
@@ -101,7 +101,13 @@ async function initRegister() {
                 <a href="./login.html">Log in here! </a>
             </div>    
         </section>
-        ${createValidationModal()}
+        ${createModal("validationModal", "Something went wrong", "", ` <button
+                    id="closeValidationModal"
+                    type="button"
+                   class="modal-close"
+                >
+                    Try again
+                </button>`)}
     `
 
     const form = document.querySelector("form");
@@ -120,8 +126,8 @@ async function initRegister() {
                 console.log(inputNewUser);
             }
             else{
-               showValidationModal('The password did not match');
-                initValidationModal();
+               showModal("validationModal", 'The password did not match');
+                initModal("validationModal");
             }
             });
 }
@@ -135,8 +141,8 @@ async function registerNewUser(user) {
 
     } catch (error) {
 
-        showValidationModal(error.message);
-        initValidationModal();
+        showModal("validationModal", error.message);
+        initModal("validationModal");
 
     }
 }

@@ -1,4 +1,5 @@
 import { getAuth } from "../auth/authstorage.js";
+import { showToast } from "../components/toast.js";
 
 const WISHLIST_KEY = "cartify_wishlists";
 
@@ -25,7 +26,7 @@ function getAllWishlists(){
 } 
 
 export function addOrRemoveFromUserWishlist(product){
-    console.log(product, "kjører")
+    
     const user = getAuth();
 
     if(!user){
@@ -40,18 +41,20 @@ export function addOrRemoveFromUserWishlist(product){
 
     if(userWishlist.includes(product.id)) {
         updatedWishlist = userWishlist.filter(item => item !== product.id);
+         showToast( `${product.title} is removed from your wishlist.`);
     }
     else {
         updatedWishlist = [
             ...userWishlist,
             product.id
         ];
+                 showToast( `${product.title} is added to your wishlist.`);
     }
 
     wishlists[user.email] = updatedWishlist;
 
     saveAllWishlists(wishlists);
-    console.log(updatedWishlist);
+   
     return updatedWishlist;
 }
 

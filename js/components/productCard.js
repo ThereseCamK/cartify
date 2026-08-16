@@ -1,6 +1,7 @@
 import { initAddToCart } from "../utils/initAddToCart.js";
 import { getUserWishlist } from "../storage/wishListStorage.js";
 import { initToggleWishlist } from "../utils/initToggleWishlist.js";
+import { createModal } from "./modal.js";
 
  function createProductCard(product){
     const wishlist = getUserWishlist();
@@ -14,6 +15,7 @@ import { initToggleWishlist } from "../utils/initToggleWishlist.js";
     
     return `
          <article class="product-card">
+          <div class="wishlist-toast-container"></div>
            <a 
             class="toggleWishlist ${inUsersWishlist} wishlistIcon"
             data-id=${product.id}>
@@ -24,6 +26,7 @@ import { initToggleWishlist } from "../utils/initToggleWishlist.js";
              </a>
             <h3>${product.title}</h3>
             <p>${product.price}</p>
+           
              <button 
                 class="
                     feed-add-to-cart 
@@ -36,6 +39,29 @@ import { initToggleWishlist } from "../utils/initToggleWishlist.js";
                 <span>Add to cart</span>
             </button>
         </article>
+        ${createModal("errorModal", 
+        "Log in to add items",
+        `You need to be logged
+        in before you can add 
+        product to your wishlist or cart.`,
+        `
+         <a href="../account/login.html">
+                    <button 
+                    class="btn primary-color">
+                        Log in
+                    </button>
+                </a>
+                <a href="../account/register.html">
+                    <button 
+                    class="btn ">
+                        Create account
+                    </button>
+                </a>
+                <br>
+                 <button class="modal-close">
+                 Maybe Later
+                 </button>
+        `)}
     `;
 }
 
@@ -54,6 +80,8 @@ import { initToggleWishlist } from "../utils/initToggleWishlist.js";
     initAddToCart(products, ".feed-add-to-cart");
 
     initToggleWishlist(products, ".toggleWishlist");
+
+
     
 
 }

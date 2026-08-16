@@ -1,6 +1,6 @@
 import { loginUser } from "../api.js";
 import { saveAuth } from "../auth/authstorage.js";
-import { showValidationModal, initValidationModal } from "../components/modal/validationModal.js";
+import { showModal, initModal } from "../components/modal.js";
 export async function Login(user){
  try {
         const loggedInUser= await loginUser(user);
@@ -9,7 +9,8 @@ export async function Login(user){
         window.location.href= "../index.html";
     }
     catch (error){
-        showValidationModal(error.message);
-        initValidationModal();
+        showModal("loginModal", error.message);
+        console.log(error.message)
+        initModal("loginModal");
     }
 }

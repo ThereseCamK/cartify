@@ -1,6 +1,7 @@
 
 import { initAddToCart } from "../utils/initAddToCart.js";
 
+
 let carouselProducts = [];
 
 function createCarouselItem(product, index) {
@@ -56,6 +57,7 @@ function createCarouselMarkUp(products) {
         >
       </button>
     </section>
+
   `;
 }
 

@@ -4,6 +4,7 @@ import { getProductPrice } from "../utils/formatPrice.js";
 
 import { getUserWishlist } from "../storage/wishListStorage.js";
 import { initToggleWishlist } from "../utils/initToggleWishlist.js";
+import { createModal } from "../components/modal.js";
 
 initProductPage();
 async function initProductPage(){
@@ -100,7 +101,7 @@ function createProductPageMargup(product){
                 <p class="product-price">
                     ${getProductPrice(product)}
                 </p>
-
+                  <div class="cart-toast-container"></div>
                  <button 
                     id="add-to-cart"
                     class="btn primary-color add-to-cart"
@@ -108,6 +109,7 @@ function createProductPageMargup(product){
                  >
                     <span>Add to cart</span>
                 </button>
+                 <div class="wishlist-toast-container"></div>
                 <button 
                     id="add-to-wishlist"
                     class="btn primary-color toggleWishlist"
@@ -129,6 +131,28 @@ function createProductPageMargup(product){
         <section id="ratingView">
             ${viewRatingInformation(product)}
         </section>
+        ${createModal("errorModal",  "Log in to add items",
+        `You need to be logged
+        in before you can add 
+        product to your wishlist or cart.`,
+        `
+         <a href="../account/login.html">
+                    <button 
+                    class="btn primary-color">
+                        Log in
+                    </button>
+                </a>
+                <a href="../account/register.html">
+                    <button 
+                    class="btn ">
+                        Create account
+                    </button>
+                </a>
+                <br>
+                 <button class="modal-close">
+                 Maybe Later
+                 </button>
+        `)}
     `;
 
  
