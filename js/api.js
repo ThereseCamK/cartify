@@ -43,7 +43,7 @@ export async function registerUser(user) {
   const result = await response.json();
 
   if (!response.ok) {
-    console.error("Registration error response:", result);
+    
 
     const message =
       result.errors?.[0]?.message ||
@@ -71,7 +71,7 @@ export async function loginUser(user) {
   const result = await response.json();
 
   if (!response.ok) {
-    console.error("Login error response:", result);
+    
 
     const message =
       result.errors?.[0]?.message ||

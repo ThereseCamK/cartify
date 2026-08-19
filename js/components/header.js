@@ -4,7 +4,7 @@ import { getCartItemCount } from "../storage/cartStorage.js";
 
 
 export default function Header({showSearch = false}) {
-    console.log(showSearch)
+  
     const isUserLoggedIn = isLoggedIn();
     const cartCount = getCartItemCount();
 

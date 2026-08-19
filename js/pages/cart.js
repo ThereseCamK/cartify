@@ -13,17 +13,10 @@ function cartPage(){
   
    const page = document.querySelector("#cartPage");
     const cart = getUserCart();
-    console.log(cart.length)
+   
     if(cart.length === 0) {
-        page.innerHTML = `
-            <h1>Your cart is feeling a little empty</h1>
-            <p>Discover something you love and add it to your cart.</p>
-            <button
- 
-                class="btn primary-color">
-                <a href="../index.html">Explore products</a>
-            </button>
-        `; 
+        page.innerHTML = emptyCartMarkup();
+        return;
     }
 
     else{
@@ -37,11 +30,9 @@ function cartPage(){
                         alt="Clear cart"
                         >
                     </a>
-                    <a href="../checkout/index.html">
-                        <button 
-                            class="btn primary-color">
-                            Proceed to checkout
-                        </button>
+                    <a href="../checkout/index.html"
+                        class="btn primary-color">
+                            Proceed to checkout   
                     </a>
                     
                 <section>
@@ -51,7 +42,7 @@ function cartPage(){
 
    const clearCartBtn = document.querySelector("#clear-cart");
     clearCartBtn.addEventListener("click", () =>{
-        console.log("denne funker")
+        
         clearCart();
         cartPage();
    });
@@ -85,6 +76,18 @@ function cartPage(){
     
 }
 
+function emptyCartMarkup(){
+    return /*HTML */`
+            <h1>Your cart is feeling a little empty</h1>
+            <p>Discover something you love and add it to your cart.</p>
+            <a href="../index.html"
+                class="btn primary-color">
+                    Explore products
+            </a>
+            
+        `; 
+}
+
 function createCartView(cart){
     let html = ''
     cart.forEach(element => {
@@ -110,13 +113,13 @@ function createCartView(cart){
             </p>
             <p>TotalPrice: ${getTotalPriceSingleProduct(element)}</p>
             
-            <a class="clear-product"
+            <button class="clear-product"
                 data-id="${element.id}"
             >
                 <img src="../assets/icons/trashcan_small.png"
                     alt="Clear cart"
                 >
-            </a>
+            </button>
             
         </div>
         <hr>

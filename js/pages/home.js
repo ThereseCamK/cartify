@@ -88,7 +88,7 @@ function initSearch(products){
 
       searchInput.addEventListener("input", (event) => {
       const searchValue = event.currentTarget.value.toLowerCase().trim();
-      console.log(searchValue)
+   
       const filteredResults = products.filter(product => {
         return product.title.toLowerCase().includes(searchValue);
       });

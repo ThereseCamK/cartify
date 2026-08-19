@@ -72,7 +72,7 @@ async function initLogin(){
             password: formData.get("password")
         }
         Login(inputUser);
-        console.log(inputUser);
+      
     });
 }
 

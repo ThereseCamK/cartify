@@ -30,7 +30,7 @@ export function showModal(id, message){
 }
 
 export function initModal(id){
-    console.log("init Modal funker")
+   
     const modal = document.querySelector(`#${id}`);
    
     

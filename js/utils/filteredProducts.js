@@ -10,7 +10,7 @@ export default function filterByCategory(products, category){
 
     const categoryTags = categories[category];
 
-    console.log(categoryTags)
+
 
     return products.filter((product) =>
         product.tags.some((tag) => categoryTags.includes(tag))

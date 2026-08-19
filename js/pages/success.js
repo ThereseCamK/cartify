@@ -1,10 +1,21 @@
-import { getLastOrder } from "../storage/orderStorage.js";
+import { getLastOrder, clearLastOrder } from "../storage/orderStorage.js";
 successPage();
 function successPage(){
    const lastOrder = getLastOrder();
    
     const successContent = document.querySelector("#successPage");
-   
+   if(!lastOrder){
+         successContent.innerHTML = /*HTML*/ `
+        <section class="confirmation-page">
+            <h1> No recent order found</h1>
+            <a href="../index.html" 
+                class="btn primary-color">
+                    Continue to shopping
+            </a>
+        </section> 
+    `; 
+    return;
+   }
     successContent.innerHTML = /*HTML*/ `
         <section class="confirmation-page">
             <div class="confirm-circle">
@@ -25,9 +36,14 @@ function successPage(){
 
             <p>We've sent a confirmation email to ${lastOrder.email} </P>
 
-            <a href="../index.html"><button class="btn primary-color">Continue shopping</button></a>
+            <a href="../index.html" 
+                class="btn primary-color">
+                    Continue shopping
+            </a>
         </section> 
     `;
+
+    clearLastOrder();
 }
 
 

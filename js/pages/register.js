@@ -136,7 +136,7 @@ async function registerNewUser(user) {
        try {
 
         const newUser = await registerUser(user);
-        console.log("Registered:", newUser);
+       
         window.location.href= "./login.html";
 
     } catch (error) {

@@ -7,7 +7,7 @@ export function initToggleWishlist(products, selector){
     toggleWishlistIcon.forEach((icon) => {
         icon.addEventListener("click", (e) => {
             const id = e.currentTarget.dataset.id;
-            console.log(id, "hva viser id")
+           
             const product = products.find(
                 p => p.id === id
             );
