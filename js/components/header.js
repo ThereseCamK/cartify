@@ -1,5 +1,7 @@
 import { isLoggedIn, logout } from "../auth/authstorage.js";
-import { getCartItemCount } from "../storage/cartStorage.js";
+import { getUserCart } from "../storage/cartStorage.js";
+import { getCartItemCount , updateCartCount } from "../utils/cartCount.js";
+
 
 
 
@@ -67,6 +69,9 @@ export function initHeader() {
 
         window.location.href = "../index.html";
     });
+    updateCartCount();
 
     
 }
+
+

@@ -6,6 +6,7 @@ import {
     increaseItemInCart, 
     decreaseItemInCart 
 } from "../storage/cartStorage.js";
+import { updateCartCount } from "../utils/cartCount.js";
 
 
 cartPage();
@@ -45,6 +46,7 @@ function cartPage(){
         
         clearCart();
         cartPage();
+        updateCartCount();
    });
 
    const clearProductFromCart = document.querySelectorAll('.clear-product');
@@ -54,6 +56,7 @@ function cartPage(){
 
         removeFromCart(id);
         cartPage();
+        updateCartCount();
         });
     });
 
@@ -63,6 +66,7 @@ function cartPage(){
                 const id = e.currentTarget.dataset.id;
                 increaseItemInCart(id);
                 cartPage();
+                updateCartCount();
         });
     });
      const decreaseBtn = document.querySelectorAll(".decrease-qty");
@@ -71,6 +75,7 @@ function cartPage(){
                 const id = e.currentTarget.dataset.id;
                 decreaseItemInCart(id);
                 cartPage();
+                updateCartCount();
         });
     });
     

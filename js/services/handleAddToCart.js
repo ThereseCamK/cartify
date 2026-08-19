@@ -2,6 +2,7 @@ import { isLoggedIn } from "../auth/authstorage.js";
 import { addToUserCart } from "../storage/cartStorage.js";
 import { showModal, initModal } from "../components/modal.js";
 import { showToast } from "../components/toast.js";
+import { updateCartCount } from "../utils/cartCount.js";
 
 export function handleAddToCart(product){
     
@@ -19,5 +20,6 @@ export function handleAddToCart(product){
         addToUserCart(product);
 
         showToast( `${product.title} is added to your cart.`);
+        updateCartCount();
     }
 }
