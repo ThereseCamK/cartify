@@ -101,7 +101,9 @@ async function initRegister() {
                 <a href="./login.html">Log in here! </a>
             </div>    
         </section>
-        ${createModal("validationModal", "Something went wrong", "", ` <button
+        ${createModal("validationModal", "Something went wrong", "", 
+            /*HTML*/` 
+                <button
                     id="closeValidationModal"
                     type="button"
                    class="modal-close"
@@ -126,7 +128,8 @@ async function initRegister() {
                 console.log(inputNewUser);
             }
             else{
-               showModal("validationModal", 'The password did not match');
+               showModal("validationModal", 
+                'The password did not match');
                 initModal("validationModal");
             }
             });

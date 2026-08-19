@@ -60,7 +60,7 @@ function createProductPageMargup(product){
            
         }
         
-    return `
+    return /*HTML */`
         <nav class="breadcrumb">
             <a href="../index.html" >Home</a>
             <span class="separator">|</span>
@@ -107,7 +107,7 @@ function createProductPageMargup(product){
                     class="btn primary-color add-to-cart"
                     data-id="${product.id}"
                  >
-                    <span>Add to cart</span>
+                    Add to cart
                 </button>
                  <div class="wishlist-toast-container"></div>
                 <button 
@@ -115,7 +115,7 @@ function createProductPageMargup(product){
                     class="btn primary-color toggleWishlist"
                     data-id="${product.id}"
                  >
-                    <span>Add to wishlist</span>
+                    Add to wishlist
                 </button>
 
                 <button 
@@ -136,17 +136,13 @@ function createProductPageMargup(product){
         in before you can add 
         product to your wishlist or cart.`,
         `
-         <a href="../account/login.html">
-                    <button 
-                    class="btn primary-color">
+         <a href="../account/login.html"
+            class="btn primary-color">
                         Log in
-                    </button>
-                </a>
-                <a href="../account/register.html">
-                    <button 
-                    class="btn ">
+        </a>
+                <a href="../account/register.html"
+                class="btn ">  
                         Create account
-                    </button>
                 </a>
                 <br>
                  <button class="modal-close">

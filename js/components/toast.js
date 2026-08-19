@@ -18,13 +18,13 @@ export function showToast(message, type = 'success') {
       toast.remove();
     });
   }, 3000);
-}
-
-
-document.querySelectorAll('.add-to-cart').forEach(button => {
+  document.querySelectorAll('.add-to-cart').forEach(button => {
   button.addEventListener('click', (e) => {
     const productName = e.target.getAttribute('data-id');
     
     showToast(`🛒 ${productName} added to cart!`);
   });
 });
+}
+
+
