@@ -13,7 +13,7 @@ export function handleAddToCart(product){
         in before you can add 
         product to your cart.
         ` );
-    ;
+    ; return null;
         
     }
     else {
