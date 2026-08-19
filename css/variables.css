@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Inter';
+    src: url("../fonts/Inter-VariableFont_opsz\,wght.ttf")
+     format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+:root {
+
+    /*COLORS*/
+    --primary-text-color: #111111;
+
+    --main-background-color: #ffffff;
+
+    /* cart, footer */
+    --sections-color: #f7f7f7;
+
+     /* Lines and cards */
+    --border-color: #eaeaea; 
+
+    /* descriptions */
+    --secondary-text-color:#6b7280; 
+
+    /* less important info */
+    --muted-text-color:#9ca3af; 
+
+    /* add to cart. active state */
+    --accent-color: #E11E27;     
+    --accent-hover-color: #b91c1c;  
+
+    --boxshadow-color: 0 4px 10px rgba(0,0,0,0.1);
+
+    --success-color: #2E7D32;
+    --error-color: #B00020;
+    --error-background-color: #FDECEC;
+    --warning-color:#f59e0b;
+
+
+    /*TYPOGRAFI*/
+    --font-primary: 'Inter', sans-serif;
+    
+
+
+
+}
