@@ -7,12 +7,8 @@ import { createModal } from "./modal.js";
     const wishlist = getUserWishlist();
    
     let inUsersWishlist = "";
-   
     if(wishlist.includes(product.id)){
-   
         inUsersWishlist = "wishlisted";
-      
-       
     }
     
     return /*HTML */`
