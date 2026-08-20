@@ -22,6 +22,14 @@ async function initHome() {
     initCarousel(featuredProducts);
     createCategorySelect(products);
     initSearch(products);
+
+    if (window.location.hash === "#shop") {
+    const productFeed = document.querySelector("#shop");
+
+    productFeed.scrollIntoView({
+        behavior: "smooth"
+    });
+}
    
   } catch (error) {
     console.error(error);

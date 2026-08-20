@@ -6,7 +6,7 @@ export async function Login(user){
         const loggedInUser= await loginUser(user);
        
         saveAuth(loggedInUser);
-        window.location.href= "../index.html";
+        window.location.href= "../index.html#shop";
     }
     catch (error){
         showModal("loginModal", error.message);

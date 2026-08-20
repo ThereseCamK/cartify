@@ -62,7 +62,7 @@ function createProductPageMargup(product){
         
     return /*HTML */`
         <nav class="breadcrumb">
-            <a href="../index.html" >Home</a>
+            <a href="../index.html#shop" >Home</a>
             <span class="separator">|</span>
             <a class="current"> ${product.tags[0]}</a>
             <span class="separator">|</span>
@@ -86,9 +86,11 @@ function createProductPageMargup(product){
                 </p> 
 
             
-                <p class="review-stars">
+               
+                <a href="#ratingView"
+                    class="review-stars">
                     ${getReviewStars(product)}
-                </p>
+                </a>
 
                 <p class="product-description">
                     ${product.description}

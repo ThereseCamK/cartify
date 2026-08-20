@@ -85,7 +85,7 @@ function emptyCartMarkup(){
     return /*HTML */`
             <h1>Your cart is feeling a little empty</h1>
             <p>Discover something you love and add it to your cart.</p>
-            <a href="../index.html"
+            <a href="../index.html#shop"
                 class="btn primary-color">
                     Explore products
             </a>

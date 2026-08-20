@@ -16,6 +16,15 @@ textarea {
     font: inherit;
 }
 
+/*Hero- section*/
+.hero-section{
+  background-image: url("../assets/images/heroimage-mobile.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 600px;
+}
+
 #toast-container {
   position: fixed;
   bottom: 20px;
@@ -39,16 +48,16 @@ textarea {
   align-items: center;
   gap: 8px;
   
-  /* Slide in animation */
+
   animation: slideIn 0.3s ease forwards;
 }
 
-/* Optional green success styling for Add to Cart */
+
 .toast.success {
-  background-color: #10b981; /* Emerald Green */
+  background-color: var(--success-color); 
 }
 
-/* Fade out class triggered by JavaScript */
+
 .toast.fade-out {
   animation: fadeOut 0.5s ease forwards;
 }
@@ -70,4 +79,17 @@ textarea {
     transform: translateY(-10px);
     opacity: 0;
   }
+}
+
+@media (min-width: 600px) {
+    .hero-section {
+        background-image: url("../assets/images/heroimage-tablet.png");
+    }
+}
+@media (min-width: 1300px) {
+    .hero-section {
+        background-image: url("../assets/images/heroimage-desktop.png");
+        min-height: 700px;
+         background-position: center bottom;
+    }
 }

@@ -140,7 +140,7 @@ async function registerNewUser(user) {
 
         const newUser = await registerUser(user);
        
-        window.location.href= "./login.html";
+        window.location.href= "./login.html#shop";
 
     } catch (error) {
 

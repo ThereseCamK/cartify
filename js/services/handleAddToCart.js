@@ -18,7 +18,6 @@ export function handleAddToCart(product){
     }
     else {
         addToUserCart(product);
-
         showToast( `${product.title} is added to your cart.`);
         updateCartCount();
     }

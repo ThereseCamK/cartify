@@ -17,7 +17,7 @@ function checkoutPage() {
             ${paymentMarkup()}
             ${orderSummary(cart)}
 
-            <a href="../cart/index.html">Edit cart</a>
+            <a href="..index.html#shop">Continue shopping</a>
             <hr>
 
             ${totalMarkup(cart)}

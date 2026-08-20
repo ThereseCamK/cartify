@@ -12,48 +12,54 @@ export default function Header({showSearch = false}) {
 
     const authElement = isUserLoggedIn
         ? `
-            <button id="logoutBtn" type="button">
+            <a id="logoutBtn" class="btn-text">
                 Log out
-            </button>
+            </a>
           `
         : `
-            <a href="../account/login.html">
+            <a 
+            href="../account/login.html">
                 Log in
             </a>
           `;
 
+   
+
     return /* HTML */ `
-        <div class="header">
-            
-        <a href="../index.html"><img 
-            class="header-logo"
-                src="../assets/icons/cartify_mobile_icon.png"
-                alt="Cartify"
-            >
-        </a>
-            <div class="header-items">
-            <img
-                src="../assets/icons/profile.png"
-                alt="Log in og out">
-                ${authElement}
-            </div>
-            
-            <div
-                class="header-items">
-                <div class="cart-count">${cartCount}</div>
-                 <img
-                    src="../assets/icons/CART.png"
-                    alt="your cart"
-                >
-                <a
-                href="../cart/index.html">
-                    Cart   
-                </a>
-            </div>
-            ${showSearch ? `<input type="search" id="searchInput" placeholder="Search for products">`: ""}
-            
+    <div class="header">
+        
+    <a href="../index.html" class="header-logo-link">
+        <img class="header-logo" src="../assets/icons/cartify_mobile_icon.png" aria-label="Cartify home">
+    </a>
+
+  
+    <div class="header-actions">
+        <div class="header-items profile-item">
+            <img src="../assets/icons/profile.png" alt="Log in og out">
+            ${authElement}
         </div>
+        <div class="header-items cart-item">
+            <a href="../cart/index.html" class="cart-icon-wrapper">
+                <div class="cart-count">
+                    ${cartCount}
+                </div>
+                <img src="../assets/icons/CART.png" alt="your cart">
+            </a>
+            <a href="../cart/index.html" class="cart-text">
+                Cart   
+            </a>
+        </div>
+    </div>
+
+
+    ${showSearch ? 
+        `<input type="search" 
+            id="searchInput" 
+            placeholder="Search for products">` 
+        : ""}
+        
         <div class="toast-container"></div>
+    </div>
     `;
 }
 export function initHeader() {
