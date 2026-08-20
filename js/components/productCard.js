@@ -7,19 +7,21 @@ import { createModal } from "./modal.js";
     const wishlist = getUserWishlist();
    
     let inUsersWishlist = "";
+   
     if(wishlist.includes(product.id)){
    
         inUsersWishlist = "wishlisted";
+      
        
     }
     
-    return `
+    return /*HTML */`
          <article class="product-card">
           <div class="wishlist-toast-container"></div>
            <a 
-            class="toggleWishlist ${inUsersWishlist} wishlistIcon"
-            data-id=${product.id}>
-                <img src="../assets/icons/heart_black.png">
+                class="toggleWishlist ${inUsersWishlist} wishlistIcon"
+                data-id=${product.id}>
+                
            </a>
             <a href="./product/index.html?id=${product.id}">
                 <img src="${product.image.url}" alt="${product.image.alt}">

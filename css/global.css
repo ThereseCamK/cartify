@@ -5,6 +5,28 @@ body{
     color: var(--primary-text-color);
     background-color: var(--main-background-color);
 }
+main {
+    padding-top: var(--header-height-mobile);
+    width: 100%;
+    max-width: 100%;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+.hero-section,
+.carousel,
+#shop,
+#categorySelect,
+#productFeed,
+footer {
+    width: 100%;
+    max-width: 100%;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -16,70 +38,16 @@ textarea {
     font: inherit;
 }
 
-/*Hero- section*/
+
 .hero-section{
   background-image: url("../assets/images/heroimage-mobile.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 600px;
+  z-index: 0;
 }
 
-#toast-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 9999;
-}
-
-/* Individual Toast Message styling */
-.toast {
-  background-color: #333;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  font-family: sans-serif;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  
-
-  animation: slideIn 0.3s ease forwards;
-}
-
-
-.toast.success {
-  background-color: var(--success-color); 
-}
-
-
-.toast.fade-out {
-  animation: fadeOut 0.5s ease forwards;
-}
-
-/* Keyframes */
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  to {
-    transform: translateY(-10px);
-    opacity: 0;
-  }
-}
 
 @media (min-width: 600px) {
     .hero-section {

@@ -52,14 +52,24 @@ function createCategorySelect(products) {
 
   let activeCategory = "all";
 
-  const categoryBar = `
+  const categoryBar = /*HTML*/`
    <p>Filter by category</p>
     <div class="categoryBar">
-        <button id="all" class="categoryToken" data-category="all">All</button>
-        <button id="fashion" class="categoryToken" data-category="fashion">Fashion</button>
-        <button id="beauty" class="categoryToken" data-category="beauty">Beauty</button>
-        <button id="watches" class="categoryToken" data-category="watches">Watches</button>
-        <button id="headphones" class="categoryToken" data-category="headphones">Headphones</button>
+        <button id="all" class="categoryToken" data-category="all">
+          <img src="../assets/icons/all-icon.png">
+        </button>
+        <button id="fashion" class="categoryToken" data-category="fashion">
+          <img src="../assets/icons/fashion.png">
+        </button>
+        <button id="beauty" class="categoryToken" data-category="beauty">
+          <img src="../assets/icons/beauty.png">
+        </button>
+        <button id="watches" class="categoryToken" data-category="watches">
+          <img src="../assets/icons/watches.png">
+        </button>
+        <button id="headphones" class="categoryToken" data-category="headphones">
+          <img src="../assets/icons/headphones.png">
+        </button>
     </div>
    
   `;

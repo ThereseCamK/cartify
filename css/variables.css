@@ -38,7 +38,11 @@
 
     /*TYPOGRAFI*/
     --font-primary: 'Inter', sans-serif;
-    
+
+
+    --header-height-mobile: 160px;
+    --btn-width: 90%;
+    --btn-height: 30px;
 
 
 

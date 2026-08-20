@@ -53,12 +53,10 @@ async function initProductPage(){
 function createProductPageMargup(product){
        const wishlist = getUserWishlist();
        
-        let inUsersWishlist = "";
-        if(wishlist.includes(product.id)){
-            console.log(" is wished for", product.id)
-            inUsersWishlist = "wishlisted";
-           
-        }
+          let inUsersWishlist = "";
+            if(wishlist.includes(product.id)){
+                inUsersWishlist = "wishlisted";
+            }
         
     return /*HTML */`
         <nav class="breadcrumb">
@@ -70,10 +68,11 @@ function createProductPageMargup(product){
         </nav>
     
         <section class="singleProductCard">
-           <a 
-            class="toggleWishlist ${inUsersWishlist} wishlistIcon "
-            data-id=${product.id}>
-                <img src="../assets/icons/heart_black.png">
+            <a 
+                class="toggleWishlist ${inUsersWishlist} wishlistIcon"
+                data-id=${product.id}>
+                
+                
            </a>
             <img 
                 class="product-card-image"

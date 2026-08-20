@@ -20,7 +20,7 @@ export function initToggleWishlist(products, selector){
             }
 
             const isWishlisted = updatedWishlist.includes(product.id);
-
+            
              const matchingElements = document.querySelectorAll(
                 `${selector}[data-id="${product.id}"]`
             );

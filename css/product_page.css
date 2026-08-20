@@ -1,4 +1,19 @@
 .product-card-image{
-height: 300px;
-width: auto;
+    display: flex;
+    height: 300px;
+    width: auto;
+    border: 2px solid var(--secondary-text-color);
+    box-shadow: var(--boxshadow-color);
+    border-radius: 10px;
+    
+}
+.singleProductCard{
+    
+    text-align: left;
+    margin-left: 5%;
+}
+.singleProductCard .wishlistIcon{
+    position: absolute;
+    top: 180px;
+    left: 65%;
 }

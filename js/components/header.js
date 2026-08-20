@@ -58,8 +58,10 @@ export default function Header({showSearch = false}) {
             placeholder="Search for products">` 
         : ""}
         
-        <div class="toast-container"></div>
+        
     </div>
+    <div class="toast-container"></div>
+    
     `;
 }
 export function initHeader() {
