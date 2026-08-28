@@ -7,6 +7,9 @@
     
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 
+    'logo actions'
+    'search search';
     align-items: center;
     gap: 12px;
     padding: 15px 32px 15px 24px;
@@ -21,10 +24,14 @@
     
     
 }
+.header-logo-link {
+    grid-area: logo;
+}
 .header-actions {
     display: flex;
     gap: 16px;
     align-items: flex-start;
+    grid-area: actions;
 }
 
 .header-logo {
@@ -88,7 +95,7 @@
 
 
 #searchInput {
-    grid-column: 1 / -1;
+    grid-area: search;
     width: 100%;
     padding: 10px 15px;
     border: 1px solid #ccc;
@@ -148,4 +155,20 @@
     transform: translateY(-10px);
     opacity: 0;
   }
+}
+
+@media (min-width: 650px) {
+
+     .header {
+        grid-template-columns: auto minmax(300px, 1fr) auto;
+        grid-template-areas:
+        "logo search actions";
+        gap: 32px;
+       
+    }
+
+    #searchInput {
+        
+        width: 100%;
+    }
 }

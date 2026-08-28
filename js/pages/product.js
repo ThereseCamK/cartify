@@ -61,24 +61,23 @@ function createProductPageMargup(product){
     return /*HTML */`
         <nav class="breadcrumb">
             <a href="../index.html#shop" >Home</a>
-            <span class="separator">|</span>
-            <a class="current"> ${product.tags[0]}</a>
+            
             <span class="separator">|</span>
             <a class="current"> ${product.title}</a>
         </nav>
-    
+          
         <section class="singleProductCard">
+        <div class="product-image-wrapper">
             <a 
                 class="toggleWishlist ${inUsersWishlist} wishlistIcon"
                 data-id=${product.id}>
-                
-                
            </a>
             <img 
                 class="product-card-image"
                 src="${product.image.url}" 
                 alt="${product.image.alt || product.title}"
             >
+        </div>
             <div class="product-information">
                 <p class="card-title">
                     ${product.title}
@@ -96,36 +95,40 @@ function createProductPageMargup(product){
                 </p>
 
                   <p class="product-tags">
-                    ${product.tags.join(' ')}
+                    [${product.tags.join(', ')}]
                 </p>
 
                 <p class="product-price">
                     ${getProductPrice(product)}
                 </p>
-                  <div class="cart-toast-container"></div>
+                 
                  <button 
                     id="add-to-cart"
-                    class="btn primary-color add-to-cart"
+                    class="btn btn-icon primary-color add-to-cart"
                     data-id="${product.id}"
                  >
                     Add to cart
                 </button>
-                 <div class="wishlist-toast-container"></div>
-                <button 
-                    id="add-to-wishlist"
-                    class="btn primary-color toggleWishlist"
-                    data-id="${product.id}"
-                 >
-                    Add to wishlist
-                </button>
 
-                <button 
-                    id="shareButton" 
-                    class=" btn icon-button" 
-                    aria-label="Share product"
-                >
-                    <img src="../assets/icons/small_share_black.png" alt="shareProduct">
-                </button>
+                 <div class="product-actions">
+                    <button 
+                        id="add-to-wishlist"
+                        class="btn  btn-icon primary-color toggleWishlist"
+                        data-id="${product.id}"
+                    >
+                        Add to wishlist
+                    </button>
+
+                    <button 
+                        id="shareButton" 
+                        class="btn btn-icon" 
+                        aria-label="Share product"
+                    >
+                       
+                        Share product
+                    </button>
+                 </div>
+                
             </div>
             
         </section>
@@ -225,7 +228,7 @@ function initShareButton(product){
 
 
 function viewRatingInformation(product){
-    let html = '<h3>Reviews</h3>';
+    let html = '<div class="reviews"><h3>Reviews</h3>';
     if(product.reviews.length ==0){
         html += `No reviews yet`
     }
@@ -235,13 +238,14 @@ function viewRatingInformation(product){
                 let singleReview = product.reviews[i];
                 html += `
                     <div class="reviewInformation">
-                        <h4>${singleReview.username}</h4>
+                        <h4 class="review-user">${singleReview.username}</h4>
                         <p>${getStars(singleReview.rating)}</p>
-                        <p>${singleReview.description}</p>
+                        <p class="review-text">${singleReview.description}</p>
                     </div>
                 `
             }
     }
+    html += `</div>`
     
     
     

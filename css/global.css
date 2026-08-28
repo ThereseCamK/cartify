@@ -39,25 +39,53 @@ textarea {
 }
 
 
-.hero-section{
-  background-image: url("../assets/images/heroimage-mobile.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 600px;
-  z-index: 0;
+
+
+.primary-color {
+    background-color: var(--accent-color);
+    color: white;
 }
 
 
-@media (min-width: 600px) {
-    .hero-section {
-        background-image: url("../assets/images/heroimage-tablet.png");
+.btn{
+    height: var(--btn-height);
+    width: var(--btn-width);
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 5%;;
+}
+
+.current-price {
+    font-size: var(--p-large-size);
+    font-weight: 600;
+}
+
+.old-price {
+    color: var(--muted-text-color);
+    text-decoration: line-through;
+    font-size: var(--p-small-size);
+}
+
+.new-price {
+    color: var(--accent-color);
+    font-size: var(--p-large-size);
+    font-weight: 600;
+}
+@media (min-width: 650px) {
+  
+    main {
+      padding-top: var(--header-height-desktop);
+     
     }
+
+
 }
 @media (min-width: 1300px) {
-    .hero-section {
-        background-image: url("../assets/images/heroimage-desktop.png");
-        min-height: 700px;
-         background-position: center bottom;
-    }
+  
+  .add-to-cart {
+    
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 30px;
+}
 }

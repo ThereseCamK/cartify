@@ -2,6 +2,7 @@ import { initAddToCart } from "../utils/initAddToCart.js";
 import { getUserWishlist } from "../storage/wishListStorage.js";
 import { initToggleWishlist } from "../utils/initToggleWishlist.js";
 import { createModal } from "./modal.js";
+import { getProductPrice } from "../utils/formatPrice.js";
 
  function createProductCard(product){
     const wishlist = getUserWishlist();
@@ -23,14 +24,13 @@ import { createModal } from "./modal.js";
                 <img src="${product.image.url}" alt="${product.image.alt}">
              </a>
             <h3>${product.title}</h3>
-            <p>${product.price}</p>
+            <p>${getProductPrice(product)}</p>
            
              <button 
                 class="
                     feed-add-to-cart 
                     btn 
                     primary-color 
-                    add-to-cart 
                     product-button"
                 data-id=${product.id}
                 >

@@ -1,5 +1,6 @@
 
 import { initAddToCart } from "../utils/initAddToCart.js";
+import { getProductPrice } from "../utils/formatPrice.js";
 
 
 let carouselProducts = [];
@@ -13,10 +14,10 @@ function createCarouselItem(product, index) {
         <img src="${product.image.url}" alt="${product.image.alt}">
        </a>
       <h3>${product.title}</h3>
-      <p>${product.price}</p>
+      <p>${getProductPrice(product)}</p>
 
       <button 
-          class="carousel-add-to-cart btn primary-color add-to-cart"
+          class=" btn primary-color "
           data-id="${product.id}"
         >
           <span>Add to cart</span>

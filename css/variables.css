@@ -25,7 +25,7 @@
     --muted-text-color:#9ca3af; 
 
     /* add to cart. active state */
-    --accent-color: #E11E27;     
+    --accent-color: rgb(225, 30, 39);     
     --accent-hover-color: #b91c1c;  
 
     --boxshadow-color: 0 4px 10px rgba(0,0,0,0.1);
@@ -39,8 +39,24 @@
     /*TYPOGRAFI*/
     --font-primary: 'Inter', sans-serif;
 
+    --h1-font-size: 32px;
+    --h1-font-weight: 700;
+    --h2-font-size: 24px;
+    --h2-font-weight: 600;
+    --h3-font-size: 20px;
+    --h3-font-weight: 600;
+    --h4-font-size: 16px;
+    --h4-font-weight: 500;
+    --p-large-size: 16px;
+    --p-weight:400;
+    --p-regular-size: 14px;
+    --p-small-size: 12px;
+    --label-weight: 500;
+  
+   
 
-    --header-height-mobile: 160px;
+    --header-height-mobile: 180px;
+    --header-height-desktop: 150px;
     --btn-width: 90%;
     --btn-height: 30px;
 

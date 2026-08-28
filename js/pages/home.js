@@ -55,6 +55,7 @@ function createCategorySelect(products) {
   const categoryBar = /*HTML*/`
    <p>Filter by category</p>
     <div class="categoryBar">
+    
         <button id="all" class="categoryToken" data-category="all">
           <img src="../assets/icons/all-icon.png">
         </button>
