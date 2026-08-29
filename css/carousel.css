@@ -13,7 +13,8 @@
 
 .carousel-card {
    
-    min-height: 250px;
+    max-height: 350px;
+    min-height: 350px;
     min-width: 150px;
     max-width: 150px;
     padding: 12px;

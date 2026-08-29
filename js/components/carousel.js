@@ -17,7 +17,7 @@ function createCarouselItem(product, index) {
       <p>${getProductPrice(product)}</p>
 
       <button 
-          class=" btn primary-color "
+          class=" btn primary-color carousel-add-to-cart"
           data-id="${product.id}"
         >
           <span>Add to cart</span>

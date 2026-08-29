@@ -60,7 +60,7 @@ function cartPage(){
         updateCartCount();
    });
 
-   const clearProductFromCart = document.querySelectorAll('.clear-product');
+   const clearProductFromCart = document.querySelectorAll('.cart-clear-product');
     clearProductFromCart.forEach((clearBtn) => {
     clearBtn.addEventListener("click", (e) => {
         const id = e.currentTarget.dataset.id;
@@ -132,7 +132,7 @@ function createCartView(cart){
             </div>
             
             
-            <button  class="trash-can-btn cart-clear-product"
+            <button  class="trash-can-btn cart-clear-product "
                 data-id="${element.id}"
             >
                 <img src="../assets/icons/trashcan_red.png"
