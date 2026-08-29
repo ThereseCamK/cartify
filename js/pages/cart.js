@@ -139,11 +139,28 @@ function getTotalPriceSingleProduct(product){
      const hasDiscount =
     product.discountedPrice < product.price;
 
-    const price = hasDiscount  ? product.discountedPrice : product.price;
-   
+    const price = hasDiscount  
+        ? product.discountedPrice 
+        : product.price;
+    
     let totalPriceSingleProduct = product.quantity * price;
     let oldPrice = product.quantity * product.price;
-    const oldTotalPrice = hasDiscount ? oldPrice.toFixed(2) : '';
 
-    return `<del>${oldTotalPrice}</del>` + ' '+ totalPriceSingleProduct.toFixed(2);
+    if(!hasDiscount){
+        return /*HTML */`
+            <span class="current-price">
+                $${totalPriceSingleProduct.toFixed(2)}
+            </span
+        `;
+    }
+
+    return /*HTML */`
+     <span class="old-price">
+            $${oldPrice.toFixed(2)}
+        </span>
+
+        <span class="new-price">
+            $${totalPriceSingleProduct.toFixed(2)}
+        </span>
+    `;
 }
