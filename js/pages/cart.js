@@ -1,5 +1,5 @@
 import { getUserCart } from "../storage/cartStorage.js";
-import { getProductPrice } from "../utils/formatPrice.js";
+
 import { 
     clearCart, 
     removeFromCart, 
@@ -7,6 +7,8 @@ import {
     decreaseItemInCart 
 } from "../storage/cartStorage.js";
 import { updateCartCount } from "../utils/cartCount.js";
+import { orderSummary } from "../components/orderSummary.js";
+import { getCartItemCount } from "../utils/cartCount.js";
 
 
 cartPage();
@@ -23,20 +25,29 @@ function cartPage(){
     else{
         page.innerHTML = /*HTML*/`
                 <section>
+                <h1 class="cart-header">Your cart  (${getCartItemCount(cart)})</h1>
+                    <div class="purchase-layout">
+                        <div class="cart-items-layout">   
+                            ${createCartView(cart)}
+                        
+                        
+                            <button  class="trash-can-btn clear-all" id="clear-cart">
+                                <img src="../assets/icons/trashcan_red.png"
+                                alt="Clear cart"
+                                >Clear cart
+                            </button>
+                        </div>
+                        <div class="order-summary-layout">
+                            ${orderSummary(cart, false)}
+                                <a href="../checkout/index.html"
+                                    class="btn primary-color cart-btn">
+                                        Proceed to checkout   
+                                </a>
+                        </div>
+                    </div>
 
-                    ${createCartView(cart)}
-                
-                    <a  id="clear-cart">
-                        <img src="../assets/icons/trashcan_small.png"
-                        alt="Clear cart"
-                        >
-                    </a>
-                    <a href="../checkout/index.html"
-                        class="btn primary-color">
-                            Proceed to checkout   
-                    </a>
-                    
-                <section>
+                  
+                </section>
         `;
     }
   
@@ -97,37 +108,40 @@ function createCartView(cart){
     let html = ''
     cart.forEach(element => {
         html += `
-        <div>
+        <div class="cart-product">
             <img class="cart-image" src="${element.image.url}">
-            <p>Title: ${element.title}</p>
-            <p>Price: ${getProductPrice(element)}</p>
-            <p>
-                <button
-                  class="increase-qty "
-                  data-id="${element.id}"  
-                >
-                    +
-                </button >
-                    ${element.quantity}
-                <button
-                    class="decrease-qty "
-                    data-id="${element.id}"
-                >
-                -
-                </button>
-            </p>
-            <p>TotalPrice: ${getTotalPriceSingleProduct(element)}</p>
+            <div class="cart-product-info">
+                <p class="cart-product-title">${element.title}</p>
+                
+                <div class="increase-decrease-element">
+                    <button
+                    class="increase-qty "
+                    data-id="${element.id}"  
+                    >
+                        +
+                    </button >
+                        ${element.quantity}
+                    <button
+                        class="decrease-qty "
+                        data-id="${element.id}"
+                    >
+                    -
+                    </button>
+                </div>
+                <p class="cart-product-price">${getTotalPriceSingleProduct(element)}</p>
+            </div>
             
-            <button class="clear-product"
+            
+            <button  class="trash-can-btn cart-clear-product"
                 data-id="${element.id}"
             >
-                <img src="../assets/icons/trashcan_small.png"
-                    alt="Clear cart"
+                <img src="../assets/icons/trashcan_red.png"
+                    alt="Clear product in cart"
                 >
             </button>
             
         </div>
-        <hr>
+        
         
         `
     });
@@ -150,7 +164,7 @@ function getTotalPriceSingleProduct(product){
         return /*HTML */`
             <span class="current-price">
                 $${totalPriceSingleProduct.toFixed(2)}
-            </span
+            </span>
         `;
     }
 
@@ -164,3 +178,4 @@ function getTotalPriceSingleProduct(product){
         </span>
     `;
 }
+

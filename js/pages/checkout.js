@@ -3,6 +3,7 @@ import { getProductPriceNumber, getTotalCartPrice } from "../utils/formatPrice.j
 import { SHIPPING_RATES } from "../config/shippingRates.js";
 import { clearCart } from "../storage/cartStorage.js";
 import { saveLastOrder } from "../storage/orderStorage.js";
+import { orderSummary } from "../components/orderSummary.js";
 
  
 
@@ -11,23 +12,30 @@ function checkoutPage() {
     const page = document.querySelector("#checkoutPage");
     const cart = getUserCart();
 
-    page.innerHTML = `
+    page.innerHTML = /*HTML */`
         <form id="checkoutForm">
-            ${checkoutFormMarkup()}
-            ${paymentMarkup()}
-            ${orderSummary(cart)}
+            <div class="purchase-layout">
+                <div class="checkout-layout">
+                    ${checkoutFormMarkup()}
+                </div>
+                <div class="payment-layout">
+                     ${paymentMarkup()}
+                     <a href="../index.html#shop">Continue shopping</a>
+                </div>
+                <div class="order-summary-layout">
+                     ${orderSummary(cart, true)}
+                    <button
+                        type="submit"
+                        class="btn primary-color completePurchase"
+                    >
+                        Complete purchase
+                    </button>
+                </div>
 
-            <a href="..index.html#shop">Continue shopping</a>
-            <hr>
-
-            ${totalMarkup(cart)}
-
-            <button
-                type="submit"
-                class="btn primary-color completePurchase"
-            >
-                Complete purchase
-            </button>
+            </div>
+           
+        
+           
         </form>
     `;
 
@@ -324,59 +332,8 @@ function paymentMarkup(){
     `;
 }
 
-function orderSummary(cart) {
-    
-    let html = `<ul class="order-summary">`;
 
-    cart.forEach((item) => {
-        html += `
-            <li class="order-summary-item">
-                <img
-                    class="cart-image"
-                    src="${item.image.url}"
-                    alt="${item.image.alt || item.title}"
-                >
 
-                <span>${item.title}</span>
-                <span>x ${item.quantity}</span>
-                <span>
-                    $${(
-                        getProductPriceNumber(item) * item.quantity
-                    ).toFixed(2)}
-                </span>
-            </li>
-        `;
-    });
-
-    html += `</ul>`;
-
-    return html;
-}
-
-function totalMarkup(cart) {
-    const subtotal = getTotalCartPrice(cart);
-    const shipping = 0;
-    const total = subtotal + shipping;
-
-    return `
-        <div class="checkout-total">
-            <div>
-                <p>Subtotal</p>
-                <p>$${subtotal.toFixed(2)}</p>
-            </div>
-
-            <div>
-                <p>Shipping</p>
-                <p>$<span id="shippingCost">${shipping.toFixed(2)}</span></p>
-            </div>
-
-            <div>
-                <p>Total</p>
-                <p>$<span id="totalCost">${total.toFixed(2)}</span></p>
-            </div>
-        </div>
-    `;
-}
 
 
 function getShippingCosts(countryCode) {
