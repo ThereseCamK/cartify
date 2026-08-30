@@ -1,4 +1,5 @@
 import { getLastOrder, clearLastOrder } from "../storage/orderStorage.js";
+import { basePath } from "../utils/basePath.js";
 successPage();
 function successPage(){
    const lastOrder = getLastOrder();
@@ -8,7 +9,7 @@ function successPage(){
          successContent.innerHTML = /*HTML*/ `
         <section class="confirmation-page">
             <h1> No recent order found</h1>
-            <a href="../index.html#shop" 
+            <a href="${basePath}/index.html#shop" 
                 class="btn primary-color">
                     Continue to shopping
             </a>
@@ -36,7 +37,7 @@ function successPage(){
 
             <p>We've sent a confirmation email to ${lastOrder.email} </P>
 
-            <a href="../index.html#carousel" 
+            <a href="${basePath}/index.html#carousel" 
                 class="btn primary-color">
                     Continue shopping
             </a>

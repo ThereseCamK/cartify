@@ -3,6 +3,7 @@ import { getAllProducts } from "../api.js";
 import initCreateProductfeed  from "../components/productCard.js";
 import  filterByCategory  from "../utils/filteredProducts.js";
 import { allowedTags, categories} from "../config/categories.js";
+import { basePath } from "../utils/basePath.js";
 
 initHome();
 async function initHome() {
@@ -57,19 +58,19 @@ function createCategorySelect(products) {
     <div class="categoryBar">
     
         <button id="all" class="categoryToken" data-category="all">
-          <img src="../assets/icons/all-icon.png">
+          <img src="${basePath}/assets/icons/all-icon.png">
         </button>
         <button id="fashion" class="categoryToken" data-category="fashion">
-          <img src="../assets/icons/fashion.png">
+          <img src="${basePath}/assets/icons/fashion.png">
         </button>
         <button id="beauty" class="categoryToken" data-category="beauty">
-          <img src="../assets/icons/beauty.png">
+          <img src="${basePath}/assets/icons/beauty.png">
         </button>
         <button id="watches" class="categoryToken" data-category="watches">
-          <img src="../assets/icons/watches.png">
+          <img src="${basePath}/assets/icons/watches.png">
         </button>
         <button id="headphones" class="categoryToken" data-category="headphones">
-          <img src="../assets/icons/headphones.png">
+          <img src="${basePath}/assets/icons/headphones.png">
         </button>
     </div>
    

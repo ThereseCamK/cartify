@@ -5,6 +5,7 @@ import { getProductPrice } from "../utils/formatPrice.js";
 import { getUserWishlist } from "../storage/wishListStorage.js";
 import { initToggleWishlist } from "../utils/initToggleWishlist.js";
 import { createModal } from "../components/modal.js";
+import { basePath } from "../utils/basePath.js";
 
 initProductPage();
 async function initProductPage(){
@@ -60,7 +61,7 @@ function createProductPageMargup(product){
         
     return /*HTML */`
         <nav class="breadcrumb">
-            <a href="../index.html#shop" >Home</a>
+            <a href="${basePath}/index.html#shop" >Home</a>
             
             <span class="separator">|</span>
             <a class="current"> ${product.title}</a>
@@ -140,11 +141,11 @@ function createProductPageMargup(product){
         in before you can add 
         product to your wishlist or cart.`,
         `
-         <a href="../account/login.html"
+         <a href="${basePath}/account/login.html"
             class="btn primary-color">
                         Log in
         </a>
-                <a href="../account/register.html"
+                <a href="${basePath}/account/register.html"
                 class="btn ">  
                         Create account
                 </a>

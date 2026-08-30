@@ -4,6 +4,7 @@ import { SHIPPING_RATES } from "../config/shippingRates.js";
 import { clearCart } from "../storage/cartStorage.js";
 import { saveLastOrder } from "../storage/orderStorage.js";
 import { orderSummary } from "../components/orderSummary.js";
+import { basePath } from "../utils/basePath.js";
 
  
 
@@ -329,8 +330,8 @@ function paymentMarkup(){
             <input type="radio" name="payment" value="credit-card" required> 
             
             <span>Credit Card / Debit Card</span>
-            <img src="../assets/icons/visa.png" alt="visa card">
-            <img src="../assets/icons/mc.png" alt="master card">
+            <img src="${basePath}/assets/icons/visa.png" alt="visa card">
+            <img src="${basePath}/assets/icons/mc.png" alt="master card">
         </label>
 
         <div id="card-payment-details" class="payment-details"> </div>
@@ -338,7 +339,7 @@ function paymentMarkup(){
         <label class="payment-option">
             <input type="radio" name="payment" value="paypal"> 
             <span>PayPal</span>
-            <img src="../assets/icons/paypal.png" alt="paypal icon">
+            <img src="${basePath}/assets/icons/paypal.png" alt="paypal icon">
         </label>
 
         <div id="paypal-payment-details" class="payment-details"> </div>
@@ -347,7 +348,7 @@ function paymentMarkup(){
             <input type="radio" name="payment" value="apple-pay"> 
             
             <span> Apple Payl</span>
-           <img src="../assets/icons/apple-icon.png" alt="apple icon">
+           <img src="${basePath}/assets/icons/apple-icon.png" alt="apple icon">
         </label>
 
         <div id="apple-payment-details" class="payment-details"> </div>
@@ -355,7 +356,7 @@ function paymentMarkup(){
         <label class="payment-option">
             <input type="radio" name="payment" value="google-pay"> 
             <span> Google Payl</span>
-            <img src="../assets/icons/google-icon.png" alt="google icon">
+            <img src="${basePath}/assets/icons/google-icon.png" alt="google icon">
         </label>
 
         <div id="google-payment-details" class="payment-details"> </div>
@@ -374,7 +375,7 @@ function getShippingCosts(countryCode) {
 
 function completePurchase(deliveryEmail){
     clearCart();
-    location.href="../success/index.html";
+    location.href=`${basePath}/success/index.html`;
     
 
 }

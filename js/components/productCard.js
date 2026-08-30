@@ -3,6 +3,7 @@ import { getUserWishlist } from "../storage/wishListStorage.js";
 import { initToggleWishlist } from "../utils/initToggleWishlist.js";
 import { createModal } from "./modal.js";
 import { getProductPrice } from "../utils/formatPrice.js";
+import { basePath } from "../utils/basePath.js";
 
  function createProductCard(product){
     const wishlist = getUserWishlist();
@@ -43,13 +44,13 @@ import { getProductPrice } from "../utils/formatPrice.js";
         in before you can add 
         product to your wishlist or cart.`,
         `
-         <a href="../account/login.html">
+         <a href="${basePath}/account/login.html">
                     <button 
                     class="btn primary-color">
                         Log in
                     </button>
                 </a>
-                <a href="../account/register.html">
+                <a href="${basePath}/account/register.html">
                     <button 
                     class="btn ">
                         Create account

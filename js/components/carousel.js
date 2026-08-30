@@ -1,7 +1,7 @@
 
 import { initAddToCart } from "../utils/initAddToCart.js";
 import { getProductPrice } from "../utils/formatPrice.js";
-
+import { basePath } from "../utils/basePath.js";
 
 let carouselProducts = [];
 
@@ -10,7 +10,7 @@ function createCarouselItem(product, index) {
 
   return `
     <article class="carousel-card ${activeClass}">
-      <a href="./product/index.html?id=${product.id}">
+      <a href="${basePath}/product/index.html?id=${product.id}">
         <img src="${product.image.url}" alt="${product.image.alt}">
        </a>
       <h3>${product.title}</h3>
@@ -36,7 +36,7 @@ function createCarouselMarkUp(products) {
         type="button"
       >
         <img
-          src="../assets/icons/arrow_backward.png"
+          src="${basePath}/assets/icons/arrow_backward.png"
           alt="Previous product"
         >
       </button>
@@ -53,7 +53,7 @@ function createCarouselMarkUp(products) {
         type="button"
       >
         <img
-          src="../assets/icons/arrow_forrward.png"
+          src="${basePath}/assets/icons/arrow_forrward.png"
           alt="Next product"
         >
       </button>

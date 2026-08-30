@@ -1,6 +1,7 @@
 
 import { createModal } from "../components/modal.js";
 import {Login } from "../auth/login.js";
+import { basePath } from "../utils/basePath.js";
 
 initLogin();
 async function initLogin(){
@@ -83,19 +84,19 @@ async function initLogin(){
                         </div>
 
                         <button type="button" class="social-btn">
-                            <img src="../assets/icons/google-icon.png" alt="">
+                            <img src="${basePath}/assets/icons/google-icon.png" alt="">
                             Continue with Google
                         </button>
 
                         <button type="button" class="social-btn">
-                            <img src="../assets/icons/apple-icon.png" alt="">
+                            <img src="${basePath}/assets/icons/apple-icon.png" alt="">
                             Continue with Apple
                         </button>
                     </div>
 
                     <div class="auth-switch">
                         <p>Don't have an account?</p>
-                        <a href="./register.html">Create account</a>
+                        <a href="${basePath}/account/register.html">Create account</a>
                     </div>
 
                 </div>

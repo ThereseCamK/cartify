@@ -1,5 +1,6 @@
 import { registerUser } from "../api.js";
 import { createModal, showModal, initModal } from "../components/modal.js";
+import { basePath } from "../utils/basePath.js";
 initRegister();
 
 async function initRegister() {
@@ -132,13 +133,13 @@ async function initRegister() {
                     </button>
 
                     <button type="button" class="social-btn apple-btn">
-                        <img src="../assets/icons/apple-icon.png" alt="">
+                        <img src="${basePath}/assets/icons/apple-icon.png" alt="">
                         Sign up with Apple
                     </button>
                 </div>
                    <div class="auth-switch">
                 <p>Allready have an account? </p>
-                <a href="./login.html">Log in here! </a>
+                <a href="${basePath}/account/login.html">Log in here! </a>
             </div> 
             </div>
           </div>

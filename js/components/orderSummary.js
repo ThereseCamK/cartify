@@ -1,4 +1,5 @@
 import { getProductPriceNumber, getTotalCartPrice } from "../utils/formatPrice.js";
+import { basePath } from "../utils/basePath.js";
 export function orderSummary(cart, showItems = true) {
     let html = `
         <div class="order-summary">
@@ -34,7 +35,7 @@ export function orderSummary(cart, showItems = true) {
                
                 </ul>  
                 <a class="edit-cart"
-                    href="../cart/index.html">
+                    href="${basePath}/cart/index.html">
                         Edit cart
                 </a>`;
     }

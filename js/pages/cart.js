@@ -9,6 +9,7 @@ import {
 import { updateCartCount } from "../utils/cartCount.js";
 import { orderSummary } from "../components/orderSummary.js";
 import { getCartItemCount } from "../utils/cartCount.js";
+import { basePath } from "../utils/basePath.js";
 
 
 cartPage();
@@ -32,14 +33,14 @@ function cartPage(){
                         
                         
                             <button  class="trash-can-btn clear-all" id="clear-cart">
-                                <img src="../assets/icons/trashcan_red.png"
+                                <img src="${basePath}/assets/icons/trashcan_red.png"
                                 alt="Clear cart"
                                 >Clear cart
                             </button>
                         </div>
                         <div class="order-summary-layout">
                             ${orderSummary(cart, false)}
-                                <a href="../checkout/index.html"
+                                <a href="${basePath}/checkout/index.html"
                                     class="btn primary-color cart-btn">
                                         Proceed to checkout   
                                 </a>
@@ -96,7 +97,7 @@ function emptyCartMarkup(){
     return /*HTML */`
             <h1>Your cart is feeling a little empty</h1>
             <p>Discover something you love and add it to your cart.</p>
-            <a href="../index.html#shop"
+            <a href="${basePath}/index.html#shop"
                 class="btn primary-color">
                     Explore products
             </a>
@@ -135,7 +136,7 @@ function createCartView(cart){
             <button  class="trash-can-btn cart-clear-product "
                 data-id="${element.id}"
             >
-                <img src="../assets/icons/trashcan_red.png"
+                <img src="${basePath}/assets/icons/trashcan_red.png"
                     alt="Clear product in cart"
                 >
             </button>
