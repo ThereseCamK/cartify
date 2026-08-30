@@ -3,8 +3,7 @@
 .welcome-message h2{
     text-align: center;
 }
-
-form {
+.auth-form-section form {
     width: min(80% - 50px);
     margin: 0 auto;
 }

@@ -13,20 +13,23 @@ function checkoutPage() {
     const cart = getUserCart();
 
     page.innerHTML = /*HTML */`
-        <form id="checkoutForm">
-            <div class="purchase-layout">
+     
+        <form id="checkoutForm" class="checkout-form">
+        <h1>Complete your order</h1>
+            <div class="purchase-layout checkout">
                 <div class="checkout-layout">
                     ${checkoutFormMarkup()}
                 </div>
                 <div class="payment-layout">
                      ${paymentMarkup()}
-                     <a href="../index.html#shop">Continue shopping</a>
+                  
                 </div>
                 <div class="order-summary-layout">
                      ${orderSummary(cart, true)}
+                    
                     <button
                         type="submit"
-                        class="btn primary-color completePurchase"
+                        class="btn primary-color complete-purchase"
                     >
                         Complete purchase
                     </button>
@@ -80,30 +83,39 @@ function initShipping(cart) {
 function initPayment() {
     const paymentOptions = document.querySelectorAll('input[name="payment"]');
 
-    const paymentDetails = document.querySelector("#paymentDetails");
+    const cardPaymentDetails = document.querySelector("#card-payment-details");
+    const paypalPaymentDetails = document.querySelector("#paypal-payment-details");
+    const applePaymentDetails = document.querySelector("#apple-payment-details");
+    const googlePaymentDetails = document.querySelector("#google-payment-details");
+
+
 
     paymentOptions.forEach((option) => {
         option.addEventListener("change", (event) => {
             const selectedPayment =
                 event.currentTarget.value;
-
-            if (selectedPayment === "credit-card") {
-                paymentDetails.innerHTML = cardPayment();
+                emptyDetails();
+            if (selectedPayment === "credit-card") {  
+                cardPaymentDetails.innerHTML = cardPayment();
             }
-
-            if (selectedPayment === "paypal") {
-                paymentDetails.innerHTML = paypalPayment();
+            if (selectedPayment === "paypal") {    
+                paypalPaymentDetails.innerHTML = paypalPayment();   
             }
-
-            if (selectedPayment === "apple-pay") {
-                paymentDetails.innerHTML = applePayPayment();
+            if (selectedPayment === "apple-pay") {   
+                applePaymentDetails.innerHTML = applePayPayment();     
             }
-
-            if (selectedPayment === "google-pay") {
-                paymentDetails.innerHTML = googlePayPayment();
+            if (selectedPayment === "google-pay") {    
+                googlePaymentDetails.innerHTML = googlePayPayment();    
             }
         });
     });
+}
+function emptyDetails(){
+     const paymentDetails =
+        document.querySelectorAll(".payment-details");
+        paymentDetails.forEach((detail) => {
+                detail.innerHTML = "";
+        });         
 }
 function initCheckoutSubmit() {
     const form =  document.querySelector("#checkoutForm");
@@ -195,7 +207,9 @@ function paypalPayment(){
                 to complete your payment.
             </p>
 
-            <button type="button">
+            <button 
+                class="btn"
+            type="button">
                 Continue with PayPal
             </button>
         </div>
@@ -222,8 +236,8 @@ function googlePayPayment() {
 
 function checkoutFormMarkup(){
    return /*HTML */`
-    <p>Delivery information</p>
    
+    <h2>Delivery information</h2>
     <div class="form-group">
         <label for="fullName">Full Name</label>
       
@@ -310,25 +324,43 @@ function checkoutFormMarkup(){
 
 function paymentMarkup(){
    return /*HTML */`
-        <p>Payment method <span>Secure checkout</span></p>
-        <label>
+        <h2>Payment method <span class="small-info">Secure checkout</span></h2>
+        <label class="payment-option">
             <input type="radio" name="payment" value="credit-card" required> 
-            Credit Card / Debit Card
-        </label>
-        <label>
-            <input type="radio" name="payment" value="paypal"> 
-            PayPal
-        </label>
-        <label>
-            <input type="radio" name="payment" value="apple-pay"> 
-            Apple Pay
-        </label>
-        <label>
-            <input type="radio" name="payment" value="google-pay"> 
-            Google Pay
+            
+            <span>Credit Card / Debit Card</span>
+            <img src="../assets/icons/visa.png" alt="visa card">
+            <img src="../assets/icons/mc.png" alt="master card">
         </label>
 
-        <div id="paymentDetails"> </div>
+        <div id="card-payment-details" class="payment-details"> </div>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="paypal"> 
+            <span>PayPal</span>
+            <img src="../assets/icons/paypal.png" alt="paypal icon">
+        </label>
+
+        <div id="paypal-payment-details" class="payment-details"> </div>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" value="apple-pay"> 
+            
+            <span> Apple Payl</span>
+           <img src="../assets/icons/apple-icon.png" alt="apple icon">
+        </label>
+
+        <div id="apple-payment-details" class="payment-details"> </div>
+        
+        <label class="payment-option">
+            <input type="radio" name="payment" value="google-pay"> 
+            <span> Google Payl</span>
+            <img src="../assets/icons/google-icon.png" alt="google icon">
+        </label>
+
+        <div id="google-payment-details" class="payment-details"> </div>
+
+        
     `;
 }
 

@@ -2,7 +2,7 @@ import { getProductPriceNumber, getTotalCartPrice } from "../utils/formatPrice.j
 export function orderSummary(cart, showItems = true) {
     let html = `
         <div class="order-summary">
-            <h3>Order summary</h3>
+            <h2>Order summary</h2>
     `;
 
     if (showItems) {
@@ -17,18 +17,26 @@ export function orderSummary(cart, showItems = true) {
                         alt="${item.image.alt || item.title}"
                     >
 
-                    <span>${item.title}</span>
-                    <span>x ${item.quantity}</span>
+                    <span class="order-sum-title">${item.title}</span>
+                    <span class="qty-number">x${item.quantity}</span>
                     <span>
                         $${(
                             getProductPriceNumber(item) * item.quantity
                         ).toFixed(2)}
                     </span>
                 </li>
+                
             `;
         });
+       
 
-        html += `</ul>`;
+        html += /*HTML */`
+               
+                </ul>  
+                <a class="edit-cart"
+                    href="../cart/index.html">
+                        Edit cart
+                </a>`;
     }
 
     html += `
