@@ -95,9 +95,9 @@ async function initRegister() {
                                     required 
                                 >
                                 <div class="input-tooltip">
-                                    Password must contian:
+                                    Password must contain:
                                     <br>
-                                    • at leat 8 chars
+                                    • at least 8 chars
 
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ async function initRegister() {
                     </div>
 
                     <button type="button" class="social-btn google-btn">
-                        <img src="../assets/icons/google-icon.png" alt="">
+                        <img src="${basePath}/assets/icons/google-icon.png" alt="">
                         Sign up with Google
                     </button>
 
@@ -138,7 +138,7 @@ async function initRegister() {
                     </button>
                 </div>
                    <div class="auth-switch">
-                <p>Allready have an account? </p>
+                <p>Already have an account? </p>
                 <a href="${basePath}/account/login.html">Log in here! </a>
             </div> 
             </div>
@@ -172,7 +172,7 @@ async function initRegister() {
                     password: formData.get("registerPassword")
                 }
                 registerNewUser(inputNewUser);
-                console.log(inputNewUser);
+               
             }
             else{
                showModal("validationModal", 

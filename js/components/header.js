@@ -1,5 +1,4 @@
 import { isLoggedIn, logout } from "../auth/authstorage.js";
-import { getUserCart } from "../storage/cartStorage.js";
 import { getCartItemCount , updateCartCount } from "../utils/cartCount.js";
 import { basePath } from "../utils/basePath.js";
 
@@ -28,8 +27,8 @@ export default function Header({showSearch = false}) {
     return /* HTML */ `
     <div class="header">
         
-    <a href="${basePath}/index.html" class="header-logo-link">
-        <img class="header-logo" src="${basePath}/assets/icons/cartify_mobile_icon.png" aria-label="Cartify home">
+    <a href="${basePath}/index.html" class="header-logo-link" aria-label="Cartify home">
+        <img class="header-logo" src="${basePath}/assets/icons/cartify_mobile_icon.png" alt="Cartify ">
     </a>
 
   
@@ -45,7 +44,7 @@ export default function Header({showSearch = false}) {
                 </div>
                 <img src="${basePath}/assets/icons/CART.png" alt="your cart">
             </a>
-            <a href="${basePath}/index.html" class="cart-text">
+            <a href="${basePath}/cart/index.html" class="cart-text">
                 Cart   
             </a>
         </div>

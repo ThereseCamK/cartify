@@ -57,19 +57,19 @@ function createCategorySelect(products) {
    <p>Filter by category</p>
     <div class="categoryBar">
     
-        <button id="all" class="categoryToken" data-category="all">
+        <button id="all" class="categoryToken" data-category="all" aria-label="All categories">
           <img src="${basePath}/assets/icons/all-icon.png">
         </button>
-        <button id="fashion" class="categoryToken" data-category="fashion">
+        <button id="fashion" class="categoryToken" data-category="fashion" aria-label="Filter by fashion">
           <img src="${basePath}/assets/icons/fashion.png">
         </button>
-        <button id="beauty" class="categoryToken" data-category="beauty">
+        <button id="beauty" class="categoryToken" data-category="beauty" aria-label="Filter by beauty">
           <img src="${basePath}/assets/icons/beauty.png">
         </button>
-        <button id="watches" class="categoryToken" data-category="watches">
+        <button id="watches" class="categoryToken" data-category="watches" aria-label="Filter by watches">
           <img src="${basePath}/assets/icons/watches.png">
         </button>
-        <button id="headphones" class="categoryToken" data-category="headphones">
+        <button id="headphones" class="categoryToken" data-category="headphones" aria-label="Filter by headphones">
           <img src="${basePath}/assets/icons/headphones.png">
         </button>
     </div>

@@ -41,7 +41,8 @@ function cartPage(){
                         <div class="order-summary-layout">
                             ${orderSummary(cart, false)}
                                 <a href="${basePath}/checkout/index.html"
-                                    class="btn primary-color cart-btn">
+                                    class="btn primary-color cart-btn"
+                                    aria-label="Proceed to checkout">
                                         Proceed to checkout   
                                 </a>
                         </div>
@@ -98,7 +99,8 @@ function emptyCartMarkup(){
             <h1>Your cart is feeling a little empty</h1>
             <p>Discover something you love and add it to your cart.</p>
             <a href="${basePath}/index.html#shop"
-                class="btn primary-color">
+                class="btn primary-color" 
+                aria-label="explore products">
                     Explore products
             </a>
             
@@ -110,14 +112,15 @@ function createCartView(cart){
     cart.forEach(element => {
         html += `
         <div class="cart-product">
-            <img class="cart-image" src="${element.image.url}">
+            <img class="cart-image" src="${element.image.url}" alt="${element.image.alt || element.title}">
             <div class="cart-product-info">
                 <p class="cart-product-title">${element.title}</p>
                 
                 <div class="increase-decrease-element">
                     <button
                     class="increase-qty "
-                    data-id="${element.id}"  
+                    data-id="${element.id}"
+                    aria-label="Increase quantity of ${element.title}"  
                     >
                         +
                     </button >
@@ -125,6 +128,7 @@ function createCartView(cart){
                     <button
                         class="decrease-qty "
                         data-id="${element.id}"
+                        aria-label="Decrease quantity of ${element.title}"
                     >
                     -
                     </button>
@@ -135,6 +139,7 @@ function createCartView(cart){
             
             <button  class="trash-can-btn cart-clear-product "
                 data-id="${element.id}"
+               
             >
                 <img src="${basePath}/assets/icons/trashcan_red.png"
                     alt="Clear product in cart"

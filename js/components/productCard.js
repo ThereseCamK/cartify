@@ -21,7 +21,7 @@ import { basePath } from "../utils/basePath.js";
                 data-id=${product.id}>
                 
            </a>
-            <a href="./product/index.html?id=${product.id}">
+            <a href="${basePath}/product/index.html?id=${product.id}">
                 <img src="${product.image.url}" alt="${product.image.alt}">
              </a>
             <h3>${product.title}</h3>

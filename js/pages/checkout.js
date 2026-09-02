@@ -5,6 +5,7 @@ import { clearCart } from "../storage/cartStorage.js";
 import { saveLastOrder } from "../storage/orderStorage.js";
 import { orderSummary } from "../components/orderSummary.js";
 import { basePath } from "../utils/basePath.js";
+import { isLoggedIn } from "../auth/authstorage.js";
 
  
 
@@ -12,6 +13,9 @@ checkoutPage();
 function checkoutPage() {
     const page = document.querySelector("#checkoutPage");
     const cart = getUserCart();
+    const isUserLoggedIn = isLoggedIn();
+    console.log(isUserLoggedIn);
+    if(!isUserLoggedIn) window.location =`${basePath}/index.html`;
 
     page.innerHTML = /*HTML */`
      
@@ -193,7 +197,7 @@ function cardPayment(){
                             id="cardName"
                             name="cardName"
                             placeholder="Cardholder name"
-                            minlength = "5";
+                            minlength = "5"
                             required
                             
                         >
@@ -347,7 +351,7 @@ function paymentMarkup(){
         <label class="payment-option">
             <input type="radio" name="payment" value="apple-pay"> 
             
-            <span> Apple Payl</span>
+            <span> Apple Pay</span>
            <img src="${basePath}/assets/icons/apple-icon.png" alt="apple icon">
         </label>
 
@@ -355,7 +359,7 @@ function paymentMarkup(){
         
         <label class="payment-option">
             <input type="radio" name="payment" value="google-pay"> 
-            <span> Google Payl</span>
+            <span> Google Pay</span>
             <img src="${basePath}/assets/icons/google-icon.png" alt="google icon">
         </label>
 

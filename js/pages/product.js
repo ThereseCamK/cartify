@@ -10,12 +10,7 @@ import { basePath } from "../utils/basePath.js";
 initProductPage();
 async function initProductPage(){
     const productPagecontainer = document.querySelector("#productPage");
-  
-   
 
-   
-    
-    
     productPagecontainer.innerHTML = `
     <p class="loading-message">Loading product...</p>`;
 
@@ -27,6 +22,7 @@ async function initProductPage(){
         if(!id){
             throw new Error("Product Id is missing");
         }
+       
         const product = await getProductById(id);
 
         productPagecontainer.innerHTML = createProductPageMargup(product);
@@ -34,6 +30,9 @@ async function initProductPage(){
         initAddToCart([product], "#add-to-cart");
         initToggleWishlist([product], ".toggleWishlist")
         
+        document.title = `${product.title} | Cartify`;
+        let meta = document.querySelector('meta[name="description"]');
+        meta.description = product.description;
       
         
     }
@@ -44,7 +43,7 @@ async function initProductPage(){
             <section class="error-message">
                 <h1>Product not found</h1>
                 <p>We could not load this product.</p>
-                <a href="../index.html">Return to home</a>
+                <a href="${basePath}/index.html">Return to home</a>
             </section>
         `
     }
@@ -69,10 +68,11 @@ function createProductPageMargup(product){
           
         <section class="singleProductCard">
         <div class="product-image-wrapper">
-            <a 
+            <button
                 class="toggleWishlist ${inUsersWishlist} wishlistIcon"
+                aria-label ="Add ${product.title} to your wishlist"
                 data-id=${product.id}>
-           </a>
+           </button>
             <img 
                 class="product-card-image"
                 src="${product.image.url}" 

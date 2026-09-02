@@ -26,7 +26,7 @@ function successPage(){
                 <h1>Order placed!</h1>
                 <p>Thank you for your purchase </p>
                 <h2>${lastOrder.name}.</h2>
-                <p>Your order has beed recived.</p>
+                <p>Your order has been received.</p>
 
                 <div class="order-confirmation-wrapper">
                         
@@ -36,7 +36,7 @@ function successPage(){
                     <p>${new Date().toDateString()}</p>
                 </div>
 
-                <p>We've sent a confirmation email to <span class="order-mail">${lastOrder.email}</span> </P>
+                <p>Your confirmation is associated with: <span class="order-mail">${lastOrder.email}</span> </P>
 
                 <a href="${basePath}/index.html#carousel" 
                     class="btn primary-color">
