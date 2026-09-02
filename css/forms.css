@@ -14,10 +14,11 @@
 
 .register-link-wrapper {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 8px;
-
+    width: 100%;
     font-size: var(--p-small-size);
 }
 
@@ -27,6 +28,7 @@
 
 .register-link-wrapper a {
     color: var(--accent-color);
+    margin-left: 10px;
 }
 
 .form-group{
@@ -65,19 +67,7 @@ select{
     width: 80%;
     padding: 1% 10% 2% 10%;
 }
-.register-link-wrapper{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 0 10%;
-    font-size: smaller;
-    align-items: center;
-   
-}
-.register-link-wrapper a{
-    color: red;
-    margin-left: 10px;
-    
+
 }
 .input-wrapper {
     position: relative;

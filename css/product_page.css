@@ -43,6 +43,7 @@
 }
 .product-information {
     grid-area: info;
+    display: flex;
     flex-direction: column;
     gap: 16px;
     font-size: var(--p-large-size);
@@ -56,9 +57,10 @@
     font-size: var(--p-small-size);
    font-weight: var(--label-weight);
 }
-.product-actions {
-    grid-template-columns: 1fr;
+.product-actions button {
+    margin-bottom:5%;
 }
+
 .add-to-cart{
     background-image: url("../assets/icons/cart_white.png");
     

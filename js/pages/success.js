@@ -23,11 +23,12 @@ function successPage(){
                 <div class="check-mark">✔</div>
             </div>
             <div class="confirmation-info">
-                <h1>Order placed!</h1>
-                <p>Thank you for your purchase </p>
-                <h2>${lastOrder.name}.</h2>
-                <p>Your order has been received.</p>
-
+                <div class="confirmation-header">
+                    <h1>Order placed!</h1>
+                    <p>Thank you for your purchase </p>
+                    <h2>${lastOrder.name}.</h2>
+                    <p>Your order has been received.</p>
+                </div>
                 <div class="order-confirmation-wrapper">
                         
                     <p class="order-label">Order number</p>

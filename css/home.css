@@ -38,11 +38,7 @@
         min-height: 0;
         background-position: center 85%;
     }
-    main {
-      padding-top: var(--header-height-desktop);
-      width: 100%;
-      max-width: 100%;
-    }
+
     .hero-section h1{
         min-width: 250px;
     }

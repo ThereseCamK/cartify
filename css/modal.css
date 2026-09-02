@@ -16,11 +16,9 @@
 }
 
 .modal-content {
-    padding: 2%;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    margin-top: 200px;
+    align-items: center;
 
    
 }
@@ -30,11 +28,12 @@
     font-size: var(--h1-font-size);
     
 }
-.modal-message{
-    min-width: 65vw;
-    margin-bottom: 50px;
-    margin-left: 10%;
+.modal-message,
+.modal-btn {
+    width: 100%;
+    max-width: 500px;
 }
+
 
 .x-close{
     border: none;
@@ -44,8 +43,7 @@
 
 }
 .modal-btn{
-    min-width: 65vw;
-    margin-left: 5%;
+    
      border: 1px solid var(--border-color);
 }
 .modal::backdrop {
