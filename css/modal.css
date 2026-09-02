@@ -32,6 +32,7 @@
 .modal-btn {
     width: 100%;
     max-width: 500px;
+    margin-bottom: 2%;
 }
 
 
@@ -52,12 +53,13 @@
 
 @media (min-width: 900px){
     .modal {
- 
-    width: 50%;
+    padding: 5%;
+    width: 40%;
  
 }
 .modal-message{
     min-width: 25vw;
+    margin-bottom: 50px;
    
 }
 .modal-btn{
