@@ -108,7 +108,7 @@ async function initLogin(){
                         ` <button
                             id="closeValidationModal"
                             type="button"
-                            class="modal-close"
+                            class="modal-close btn modal-btn"
                         >
                             Try again
                         </button>` )}

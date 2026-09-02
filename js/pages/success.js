@@ -22,25 +22,27 @@ function successPage(){
             <div class="confirm-circle">
                 <div class="check-mark">✔</div>
             </div>
-            <h1>Order placed!</h1>
-            <p>Thank you for your purchase </p>
-            <h2>${lastOrder.name}.</h2>
-            <p>Your order has beed recived.</p>
+            <div class="confirmation-info">
+                <h1>Order placed!</h1>
+                <p>Thank you for your purchase </p>
+                <h2>${lastOrder.name}.</h2>
+                <p>Your order has beed recived.</p>
 
-            <div class="order-confirmation-wrapper">
-                    
-                <p>Order number</p>
-                <p>${lastOrder.orderNumber}</p>
-                <p>Order date </p>
-                <p>${new Date().toDateString()}</p>
+                <div class="order-confirmation-wrapper">
+                        
+                    <p class="order-label">Order number</p>
+                    <p>${lastOrder.orderNumber}</p>
+                    <p class="order-label">Order date </p>
+                    <p>${new Date().toDateString()}</p>
+                </div>
+
+                <p>We've sent a confirmation email to <span class="order-mail">${lastOrder.email}</span> </P>
+
+                <a href="${basePath}/index.html#carousel" 
+                    class="btn primary-color">
+                        Continue shopping
+                </a>
             </div>
-
-            <p>We've sent a confirmation email to ${lastOrder.email} </P>
-
-            <a href="${basePath}/index.html#carousel" 
-                class="btn primary-color">
-                    Continue shopping
-            </a>
         </section> 
     `;
 

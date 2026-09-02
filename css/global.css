@@ -91,6 +91,7 @@ h4{
     font-size: var(--p-large-size);
     font-weight: 600;
 }
+
 @media (min-width: 650px) {
   
     main {

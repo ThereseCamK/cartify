@@ -3,11 +3,11 @@ export function createModal(id, title, message, buttons){
   
     return /*HTML */`
         <dialog id="${id}" class="modal">
-        <button class="modal-close" aria-label="Close">
+        <button class="modal-close x-close" aria-label="Close">
             ×
         </button>
-            <div class="modal-content">
-                <h2>${title}</h2>
+            <div class="modal-content btn">
+                <h1>${title}</h1>
                 <p class="modal-message">${message}</p>
                 ${buttons}
             </div>

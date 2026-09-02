@@ -142,15 +142,15 @@ function createProductPageMargup(product){
         product to your wishlist or cart.`,
         `
          <a href="${basePath}/account/login.html"
-            class="btn primary-color">
+            class="btn modal-btn primary-color">
                         Log in
         </a>
                 <a href="${basePath}/account/register.html"
-                class="btn ">  
+                class="btn modal-btn ">  
                         Create account
                 </a>
                 <br>
-                 <button class="modal-close">
+                 <button class="modal-close modal-btn">
                  Maybe Later
                  </button>
         `)}

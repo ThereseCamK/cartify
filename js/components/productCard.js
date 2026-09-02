@@ -38,28 +38,28 @@ import { basePath } from "../utils/basePath.js";
                 <span>Add to cart</span>
             </button>
         </article>
-        ${createModal("errorModal", 
-        "Log in to add items",
-        `You need to be logged
-        in before you can add 
-        product to your wishlist or cart.`,
-        `
-         <a href="${basePath}/account/login.html">
-                    <button 
-                    class="btn primary-color">
+        ${createModal("errorModal",
+
+            "Log in to add items",
+
+            `You need to be logged
+            in before you can add 
+            product to your wishlist or cart.`,
+
+            `<a href="${basePath}/account/login.html">
+                <button 
+                    class="btn modal-btn primary-color">
                         Log in
                     </button>
                 </a>
                 <a href="${basePath}/account/register.html">
                     <button 
-                    class="btn ">
+                    class="btn modal-btn ">
                         Create account
                     </button>
                 </a>
                 <br>
-                 <button class="modal-close">
-                 Maybe Later
-                 </button>
+               
         `)}
     `;
 }

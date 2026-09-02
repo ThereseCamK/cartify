@@ -152,7 +152,8 @@ async function initRegister() {
                 <button
                     id="closeValidationModal"
                     type="button"
-                   class="modal-close"
+                   class="modal-close modal-btn
+                   "
                 >
                     Try again
                 </button>`)}
