@@ -190,8 +190,11 @@ async function registerNewUser(user) {
         window.location.href= "./login.html";
 
     } catch (error) {
-
-        showModal("validationModal", error.message);
+        let message = error.message; 
+        if(error.message === "Profile already exists"){
+            message = "This username or email is already in use. Please try another one."
+        }
+        showModal("validationModal", message);
         initModal("validationModal");
 
     }

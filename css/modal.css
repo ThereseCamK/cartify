@@ -1,70 +1,59 @@
-
 .modal {
     border: 10px solid var(--warning-color);
-    width: 80%;
-    padding: 20px;
+  
+    padding: 70px 20px;
     min-height: 50vh;
 }
 
-.modal h1{
+.modal h1 {
     color: var(--warning-color);
-}
-.modal .modal-btn{
-    border: 2px solid var(--border-color);
-   border-radius: 10px;
-   min-height: 48px;
 }
 
 .modal-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-   
+    text-align: center;
+    gap: 20px;
+    margin-left: 15px;
 }
+
+.modal-message {
+    margin: 0;
+}
+
+.modal .modal-btn {
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    min-height: 48px;
+    min-width: 250px;
+    margin: 0;
+}
+
 .modal-close {
-   
     background-color: inherit;
     font-size: var(--h1-font-size);
-    
+}
+
+.x-close {
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 10px;
 }
 .modal-message,
 .modal-btn {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 2%;
+    width: 80%;
+    max-width: 300px;
 }
 
-
-.x-close{
-    border: none;
-    position: absolute;
-    top: 0; 
-    right: 10px;
-
-}
-.modal-btn{
-    
-     border: 1px solid var(--border-color);
-}
 .modal::backdrop {
     background: rgba(0, 0, 0, 0.85);
 }
 
-@media (min-width: 900px){
+@media (min-width: 900px) {
     .modal {
-    padding: 5%;
-    width: 40%;
- 
-}
-.modal-message{
-    min-width: 25vw;
-    margin-bottom: 50px;
-   
-}
-.modal-btn{
-    min-width: 25vw;
-  
-}
-
+        padding: 5%;
+        width: 40%;
+    }
 }
