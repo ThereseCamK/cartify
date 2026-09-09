@@ -29,9 +29,13 @@ async function initHome() {
 
     initModal("errorModal");
 
-  carouselContainer.innerHTML = "<p>Loading products...</p>";
-  productContainer.innerHTML = "<p>Loading products...</p>";
- 
+  carouselContainer.innerHTML = `<div class="loading-wrapper">
+                                    <span class='loader'></span>
+                                  </div>`;
+  productContainer.innerHTML = "";
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
   try {
     const products = await getAllProducts();
 
