@@ -4,7 +4,7 @@ import { getProductPrice } from "../utils/formatPrice.js";
 
 import { getUserWishlist } from "../storage/wishListStorage.js";
 import { initToggleWishlist } from "../utils/initToggleWishlist.js";
-import { createModal } from "../components/modal.js";
+import { initModal, createModal } from "../components/modal.js";
 import { basePath } from "../utils/basePath.js";
 
 initProductPage();
@@ -26,6 +26,7 @@ async function initProductPage(){
         const product = await getProductById(id);
 
         productPagecontainer.innerHTML = createProductPageMargup(product);
+        initModal("errorModal");
         initShareButton(product);
         initAddToCart([product], "#add-to-cart");
         initToggleWishlist([product], ".toggleWishlist")
@@ -136,25 +137,24 @@ function createProductPageMargup(product){
         <section id="ratingView">
             ${viewRatingInformation(product)}
         </section>
-        ${createModal("errorModal",  "Log in to add items",
-        `You need to be logged
-        in before you can add 
-        product to your wishlist or cart.`,
-        `
-         <a href="${basePath}/account/login.html"
-            class="btn modal-btn primary-color">
-                        Log in
-        </a>
-                <a href="${basePath}/account/register.html"
-                class="btn modal-btn ">  
-                        Create account
+            ${createModal("errorModal",  
+            "Log in to add items",
+            `You need to be logged
+            in before you can add 
+            product to your wishlist or cart.`,
+            `
+            <a class="btn modal-btn primary-color" 
+                href="${basePath}/account/login.html">
+                    Log in
                 </a>
-                <br>
-                 <button class="modal-close modal-btn">
-                 Maybe Later
-                 </button>
-        `)}
+            <a class="btn modal-btn "href="${basePath}/account/register.html">
+                Create account
+            </a>
+            <br>
+        
+                `)}
     `;
+   
 
  
 }

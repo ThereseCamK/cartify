@@ -1,12 +1,12 @@
 
-import { createModal } from "../components/modal.js";
+import { createModal, initModal } from "../components/modal.js";
 import {Login } from "../auth/login.js";
 import { basePath } from "../utils/basePath.js";
 
 initLogin();
 async function initLogin(){
     const loginContainer = document.querySelector("#loginPage");
-
+    initModal("validationModal")
     loginContainer.innerHTML = /*HTML */`
        <section>
             <div class="auth-layout">
@@ -102,7 +102,7 @@ async function initLogin(){
                 </div>
             </div>
         </section>
-        ${createModal(  "loginModal", 
+        ${createModal(  "validationModal", 
                         "Something went wrong", 
                         "", 
                         ` <button

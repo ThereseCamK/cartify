@@ -4,16 +4,34 @@ import initCreateProductfeed  from "../components/productCard.js";
 import  filterByCategory  from "../utils/filteredProducts.js";
 import { allowedTags, categories} from "../config/categories.js";
 import { basePath } from "../utils/basePath.js";
+import { initModal, createModal } from "../components/modal.js";
 
 initHome();
 async function initHome() {
   
   const carouselContainer = document.querySelector("#carousel");
   const productContainer = document.querySelector("#productFeed");
+  const modal = createModal("errorModal",
+          "Log in to add items",
+            `You need to be logged
+            in before you can add 
+            product to your wishlist or cart.`,
+            `<a  class="btn modal-btn primary-color "href="${basePath}/account/login.html">
+                Log in
+            </a>
+            <a class="btn modal-btn "
+              href="${basePath}/account/register.html">
+               Create account
+            </a>
+    
+        `);
+    document.querySelector("main").insertAdjacentHTML("beforeend", modal);
+
+    initModal("errorModal");
 
   carouselContainer.innerHTML = "<p>Loading products...</p>";
   productContainer.innerHTML = "<p>Loading products...</p>";
-
+ 
   try {
     const products = await getAllProducts();
 
@@ -45,6 +63,8 @@ async function initHome() {
     carouselContainer.innerHTML = errorMessage;
     productContainer.innerHTML = errorMessage;
   }
+
+ 
 }
 
 
@@ -97,7 +117,7 @@ function createFeed(products, activeCategory){
     const filteredProducts = filterByCategory(products, activeCategory);
 
     initCreateProductfeed(filteredProducts);
- 
+    
 }
 
 function initSearch(products){

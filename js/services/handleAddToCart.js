@@ -7,7 +7,7 @@ import { updateCartCount } from "../utils/cartCount.js";
 export function handleAddToCart(product){
     
     if(!isLoggedIn()){
-       initModal("errorModal");
+      
        showModal("errorModal",
         `You need to be logged
         in before you can add 
