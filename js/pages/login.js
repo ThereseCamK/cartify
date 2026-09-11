@@ -6,7 +6,7 @@ import { basePath } from "../utils/basePath.js";
 initLogin();
 async function initLogin(){
     const loginContainer = document.querySelector("#loginPage");
-    initModal("validationModal")
+    
     loginContainer.innerHTML = /*HTML */`
        <section>
             <div class="auth-layout">
@@ -112,7 +112,9 @@ async function initLogin(){
                         >
                             Try again
                         </button>` )}
+       
     `;
+     initModal("validationModal")
 
     const form = document.querySelector("form");
 

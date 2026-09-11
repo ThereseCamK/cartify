@@ -13,6 +13,11 @@ export function updateCartCount(){
     const cartCountElement = document.querySelector(".cart-count");
 
     if(!cartCountElement) return;
-
-    cartCountElement.textContent = getCartItemCount();
+    const count = getCartItemCount();
+    if(count === 0){
+        cartCountElement.style.display = "none";
+        return;
+    }
+    cartCountElement.textContent = count;
+    cartCountElement.style.display = "flex";
 }
