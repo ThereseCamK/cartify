@@ -1,7 +1,7 @@
 .modal {
     border: 10px solid var(--warning-color);
   
-    padding: 70px 20px;
+    padding: 50px 20px;
     min-height: 50vh;
 }
 
